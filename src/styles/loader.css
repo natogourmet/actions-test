@@ -1,0 +1,28 @@
+@define-mixin fc-adi-loader $size: 70px {
+  height: $size;
+  width: $size;
+  animation: spin 0.7s infinite linear;
+  background-color: var(--transparent);
+  border-radius: 50%;
+  border-style: solid;
+  border-width: 4px;
+  box-sizing: border-box;
+  content: '';
+  display: inline-block;
+  position: relative;
+  left: calc(50% - ($size/2));
+  vertical-align: middle;
+  border-color: var(--transparent) var(--transparent) var(--transparent) var(--black);
+}
+
+.fc-adi-loader {
+  @mixin fc-adi-loader;
+}
+
+.fc-adi-loader-small {
+  @mixin fc-adi-loader 40px;
+}
+
+.fc-adi-loader-big {
+  @mixin fc-adi-loader 120px;
+}

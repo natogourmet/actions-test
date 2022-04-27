@@ -1,0 +1,97 @@
+/*
+
+Color swatch
+
+.fc-attribute-selector-swatch
+  .fc-swatch-group
+    .fc-outline-target.fc-preview-enabled.fc-swatch-ca.fc-swatch-ca-collar.fc-swatch-ca-XXXXXX.fc-swatch-av-XXXXXX.fc-swatch-ca-collar-av-XXXXXX
+      .fc-attribute-value-swatch
+        .fc-button-pair
+          button.fc-default-button
+          .fc-button.fc-fancy-button
+            .fc-ripple-effect
+            .fc-button-label
+              span
+                .fc-accessible-swatch.fc-aria-hidden
+                  .fc-swatch
+                  .fc-swatch-title
+
+*/
+
+#configure-container {
+  & .fc-attribute-header .fc-swatch {
+    width: var(--swatch-header-size);
+    height: var(--swatch-header-size);
+  }
+
+  & .fc-swatch-group {
+    font-size: 0;
+
+    & .fc-swatch {
+      width: var(--swatch-size);
+      height: var(--swatch-size);
+      border-radius: var(--swatch-radius);
+    }
+
+    & .fc-attribute-value-swatch {
+      background-color: var(--theme-primary);
+      box-shadow: none;
+
+      /* Prevent the swatch changes the size when the border is drawed on selected status */
+      border: 1px solid rgba(0, 0, 0, 0);
+
+      &:hover {
+        box-shadow: none;
+      }
+
+      &.fc-swatch-selected {
+        border: 1px solid var(--theme-invert);
+      }
+    }
+
+    & .fc-swatch-ca .fc-attribute-value-swatch {
+      padding: 5px;
+      margin: 5px;
+      background-color: var(--theme-primary);
+      border-radius: var(--swatch-radius);
+    }
+  }
+}
+
+@media (--lower-than-md) {
+  #configure-container {
+    & .fc-swatch-group .fc-swatch-ca .fc-attribute-value-swatch {
+      margin: 2px;
+    }
+  }
+}
+
+@media (--ms-ie) {
+  /* fallback css var on IE */
+  #configure-container {
+    & .fc-swatch,
+    & .fc-attribute-title .fc-swatch {
+      width: 35px;
+      height: 35px;
+      border-radius: 0;
+    }
+
+    & .fc-attribute-value-swatch,
+    & .fc-attribute-value-swatch.fc-swatch-selected {
+      background-color: #fff;
+    }
+
+    & .fc-swatch-group .fc-swatch-ca .fc-attribute-value-swatch {
+      border: 1px solid #ebebeb;
+    }
+
+    & .fc-attribute-header .fc-swatch {
+      width: 25px;
+      height: 25px;
+    }
+
+    & .fc-attribute-value-swatch.fc-swatch-selected::before {
+      color: #fff;
+    }
+  }
+}

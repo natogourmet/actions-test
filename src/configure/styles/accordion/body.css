@@ -1,0 +1,202 @@
+/*
+Accordion component
+
+configure-attributes-wrapper
+  .configure-nav-sm
+    .fc-pager-body
+    ...
+  .configure-nav-md
+    .fc-pager-body
+    ...
+  .configure-nav-lg
+    .fc-accordion
+    ...
+
+LG
+.configure-nav-lg
+  .fc-accordion
+    .fc-accordion-panel.fc-is-open.fc-accordion-panel-ca-main_group
+      .fc-accordion-panel-header.fc-outline-target //HEADER
+        .fc-accordion-panel-body
+          ....
+      .fc-accordion-panel-body-revealer //BODY
+        .fc-accordion-panel-body-0
+          .fc-attribute-selector.fc-outline-target.fc-attribute-selector-alias-main_group
+            .fc-ca-fieldset
+              ...
+*/
+
+#configure-container {
+  & .fc-attribute-selector-swatch,
+  & .fc-facet-selector-radio,
+  & .fc-facet-selector-dropdown,
+  & .fc-attribute-selector-button {
+    margin-bottom: 25px;
+  }
+
+  & .fc-attribute-selector-text {
+    max-width: 216px;
+    margin: 25px 0;
+
+    & input {
+      margin-bottom: 0;
+    }
+  }
+
+  & .fc-accordion {
+    border-bottom: 1px solid var(--border-color);
+
+    & .fc-accordion-panel {
+      & .fc-accordion-panel-header {
+        padding: 20px 0;
+        background: var(--theme-primary);
+        border: 0;
+        border-top: 1px solid var(--border-color);
+
+        & .fc-swatch {
+          border: 1px solid var(--border-color);
+        }
+
+        & .fc-attribute-header {
+          &::after {
+            display: none;
+          }
+        }
+      }
+
+      & .fc-accordion-panel-body {
+        padding: 0 15px;
+
+        & .fc-attribute-selector-swatch,
+        & .fc-attribute-selector-button,
+        & .fc-input input,
+        & .fc-facet-selector-dropdown,
+        & .fc-attribute-selector-checkbox,
+        & .fc-facet-selector-radio {
+          margin-bottom: 25px;
+        }
+
+        & .fc-input input {
+          max-width: 306px;
+        }
+      }
+
+      &.fc-is-open {
+        & .fc-accordion-panel-body-revealer {
+          max-height: none;
+        }
+
+        & .fc-accordion-panel-header {
+          background: var(--theme-primary);
+        }
+
+        & .fc-attribute-header {
+          &::before {
+            content: '\e911';
+            font-size: 20px;
+          }
+        }
+      }
+
+      &.fc-is-closed {
+        & .fc-accordion-panel-header {
+          border: 0;
+          border-top: 1px solid var(--border-color);
+          background: var(--theme-primary);
+
+          &:focus {
+            border: 0;
+            border-top: 1px solid var(--border-color);
+            background: var(--theme-primary);
+          }
+        }
+      }
+    }
+  }
+
+  & .fc-attribute-title,
+  & .fc-facet-title {
+    margin: 0;
+    margin-bottom: 15px;
+    font: var(--font-bold);
+    font-size: 15px;
+    color: var(--color-text);
+  }
+
+  & .fc-attribute-title span:first-child {
+    display: none;
+  }
+
+  & .fc-facet-selector-radio .fc-facet-title {
+    /* remove title as per design */
+    display: none;
+  }
+
+  & .fc-attribute-selector-alias-add_monogram {
+    margin-bottom: 25px;
+
+    & .fc-attribute-title {
+      display: none;
+      font-size: 0.9rem;
+      color: var(--color-text-secondary);
+      margin-bottom: 10px;
+    }
+
+    & .fc-attribute-selector-info-icon {
+      display: none;
+    }
+
+    & .fc-attribute-selector-alias-tongue_font_family,
+    & .fc-attribute-selector-alias-tongue_font_style,
+    & .fc-attribute-selector-alias-tongue_text_color,
+    & .fc-attribute-selector-alias-tongue_text_size {
+      & .fc-attribute-title {
+        display: block;
+      }
+    }
+  }
+
+  /* ??? Is used? */
+
+  /* .fc-accordion-wrap {
+    height: 2000px;
+    max-height: 550px;
+    overflow: auto;
+  } */
+
+  & .fc-attribute-selector-dropdown + .fc-subattributes-wrapper {
+    padding-top: 10px;
+  }
+
+  & .fc-facet-selector-dropdown .fc-facet-title {
+    color: var(--color-text-secondary);
+    font-weight: normal;
+    font-size: var(--font-size-main);
+    line-height: 1.3;
+    margin-bottom: 10px;
+  }
+
+  & .fc-user-changed-some.fc-attribute-selector-alias-add_monogram {
+    margin-bottom: 0;
+  }
+
+  & .attribute-list-personalize .fc-pager-header .fc-accessible-swatch {
+    display: none;
+  }
+}
+
+@media (--lower-than-sm) {
+  #configure-container {
+    & .fc-pager-header {
+      margin: 0 -15px 30px;
+    }
+  }
+}
+
+@media (--between-sm-m) {
+  #configure-container {
+    & .fc-facet-selectors .fc-dropdown-container {
+      width: 220px;
+    }
+  }
+}

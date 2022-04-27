@@ -1,0 +1,178 @@
+/*
+
+.fc-dialog-wrapper-container
+  .fc-dialog-wrapper
+    .fc-dialog-container
+      .fc-dialog.fc-dialog-type-...
+        .fc-dialog-header
+          .fc-dialog-header-title
+          .fc-dialog-close
+            .fc-button-pair.fc-outline-target
+              button.fc-default-button
+              .fc-button.fc-fancy-button
+        .fc-dialog-body
+          .fc-share-dialog
+            ...
+*/
+
+.fc-dialog-container {
+  & .fc-dialog {
+    background: var(--theme-primary);
+    padding: var(--space-popup);
+    color: var(--color-text);
+
+    &:not(.fc-dialog-type-sharing-list-dialog) {
+      background: var(--theme-primary);
+      padding: var(--space-popup);
+      box-shadow: none;
+      color: var(--color-text);
+    }
+
+    & .fc-dialog-close {
+      position: absolute;
+      right: 15px;
+      top: 10px;
+      padding: 0;
+
+      & .fc-icon-close {
+        width: auto;
+        height: auto;
+        margin-top: 8px;
+        margin-right: 4px;
+
+        &::before {
+          content: '\e912';
+          font-size: 20px;
+          transform: none;
+          position: static;
+          background-color: transparent;
+        }
+
+        &::after {
+          display: none;
+        }
+      }
+    }
+
+    & .fc-ripple-effect,
+    & .fc-button {
+      animation: none;
+    }
+
+    & .fc-dialog-header {
+      background-color: var(--theme-primary);
+      padding: 0;
+      height: auto !important;
+      margin-bottom: 30px;
+      margin-top: 20px;
+
+      & > h2 {
+        font: var(--font-bold);
+        letter-spacing: 0.5px;
+        font-size: var(--size-popup-title);
+        text-transform: uppercase;
+      }
+    }
+
+    & .fc-dialog-body,
+    & .fc-dialog-body > div {
+      overflow-y: auto;
+      overflow-x: hidden;
+      max-width: 100%;
+    }
+  }
+
+  & .fc-confirm-dialog > p {
+    margin-top: 0;
+  }
+
+  & .fc-dialog-footer {
+    display: flex;
+    display: -ms-flexbox;
+    justify-content: space-between;
+    margin-top: 30px;
+    margin-left: -10px;
+    margin-right: -10px;
+    overflow: hidden;
+
+    & .fc-button-pair {
+      flex: 1 1 50%;
+      margin-left: 10px;
+      margin-right: 10px;
+    }
+
+    & .fc-button {
+      font-weight: inherit;
+      height: 100%;
+      width: 100%;
+      display: block;
+      padding: 18px 10px;
+      box-sizing: border-box;
+    }
+  }
+}
+
+@media (--lower-than-sm) {
+  .fc-dialog-container {
+    & .fc-dialog-footer {
+      flex-direction: column-reverse;
+    }
+
+    & .fc-confirm-ok {
+      margin-bottom: 15px;
+    }
+  }
+}
+
+@media (--greater-than-md) {
+  .fc-dialog-type-email {
+    min-width: 823px !important; /* important needs to custom width dialog */
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%) !important; /* important needs to custom width dialog */
+  }
+
+  .fc-dialog-body {
+    width: 100% !important; /* important needs to custom width dialog */
+  }
+
+  .fc-share-recipe-image {
+    width: calc(50% - 45px);
+    position: absolute;
+    right: 30px;
+    margin-top: 25px;
+    border: 1px solid var(--border-color);
+    height: calc(100% - 167px); /* 167 i got from design */
+  }
+
+  .fc-share-email-form {
+    margin-right: 50%;
+    padding-right: 15px;
+  }
+}
+
+@media (--ms-ie) {
+  /* fallback css var on IE */
+
+  .fc-dialog-container {
+    & .fc-dialog {
+      background: #fff;
+      padding: 30px 30px 40px;
+      color: #101010;
+      & .fc-dialog-header {
+        background-color: #fff;
+
+        & > h2 {
+          font-size: 20px;
+        }
+      }
+    }
+  }
+
+  @media (--lower-than-md) {
+    /* fallback css var on IE */
+    .fc-share-recipe-image {
+      border: 1px solid #ebebeb;
+    }
+  }
+}

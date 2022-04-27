@@ -1,0 +1,191 @@
+/* FORM */
+.fc-radio,
+.fc-checkbox {
+  & input {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    border: 0;
+    padding: 0;
+    clip: rect(0 0 0 0);
+    overflow: hidden;
+  }
+
+  & label {
+    display: -webkit-box; /* FIXME: Maybe it should be removed because we use autoprefixer */
+    display: -moz-box; /* FIXME: Maybe it should be removed because we use autoprefixer */
+    display: -ms-flexbox; /* FIXME: Maybe it should be removed because we use autoprefixer */
+    display: -webkit-flex; /* FIXME: Maybe it should be removed because we use autoprefixer */
+    display: flex;
+    align-items: center;
+    position: relative;
+    cursor: pointer;
+
+    &::after {
+      display: block;
+      content: '';
+      margin: 0;
+      width: 20px;
+      height: 20px;
+      border: 1px solid var(--color-text);
+      position: absolute;
+      left: 0;
+      top: 0;
+    }
+  }
+}
+
+@media (--ms-ie) {
+  /* fallback css var on IE */
+  .fc-radio label::after,
+  .fc-checkbox label::after {
+    border: 1px solid #101010;
+  }
+}
+
+.fc-radio label::after {
+  border-radius: 50%;
+}
+
+.fc-radio.fc-radio-selected label::before {
+  background: var(--color-text);
+  display: block;
+  content: '';
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  position: absolute;
+  left: 4px;
+  top: 4px;
+}
+
+.fc-checkbox.fc-checkbox-selected label::before {
+  position: absolute;
+  display: block;
+  content: '\e902';
+  color: var(--color-text);
+  font-size: 20px;
+}
+
+@media (--ms-ie) {
+  /* fallback css var on IE */
+  .fc-radio.fc-radio-selected label::before {
+    background: #101010;
+  }
+
+  .fc-checkbox.fc-checkbox-selected label::before {
+    color: #101010;
+  }
+}
+
+.fc-label .fc-label-text {
+  color: var(--color-text);
+  margin-bottom: 10px;
+}
+
+input[type='radio'] + .fc-label-text,
+input[type='checkbox'] + .fc-label-text {
+  color: var(--color-text);
+  font-size: var(--font-size-main);
+  margin-left: 30px;
+  margin-right: 5px;
+  line-height: 20px;
+}
+
+@media (--ms-ie) {
+  /* fallback css var on IE */
+  input[type='radio'] + .fc-label-text,
+  input[type='checkbox'] + .fc-label-text {
+    color: #101010;
+    font-size: 13px;
+  }
+}
+
+.fc-dropdown {
+  width: 100%;
+  border: 1px solid var(--border-color);
+  padding: 11px 15px;
+  color: var(--color-text);
+  -moz-appearance: none; /* Firefox */
+  -webkit-appearance: none; /* Safari and Chrome */
+  appearance: none;
+  cursor: pointer;
+  line-height: 1.2em;
+  border-radius: 0;
+  background: var(--theme-primary);
+
+  &::-ms-expand {
+    display: none;
+  }
+}
+
+.fc-input-invalid .fc-dropdown {
+  border-color: var(--border-color-error);
+}
+
+@media (--ms-ie) {
+  /* fallback css var on IE */
+  .fc-dropdown {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border: 1px solid #ebebeb;
+    color: #101010;
+    background: #fff;
+  }
+
+  .fc-input-invalid .fc-dropdown {
+    border-color: #c033;
+  }
+}
+
+.fc-dropdown-container {
+  position: relative;
+
+  /* Dropdown arrow */
+  &::before {
+    display: block;
+    content: '\e90f';
+    position: absolute;
+    right: 11px;
+    top: 50%;
+    transform: translate(0, -50%);
+    font-size: 20px;
+    cursor: pointer;
+    pointer-events: none;
+  }
+}
+
+.fc-input input,
+.fc-input textarea {
+  font: var(--font-main);
+  width: 100%;
+  border: 1px solid var(--border-color);
+  padding: 12px 15px;
+  font-size: var(--font-size-main);
+  color: var(--color-text-secondary);
+}
+
+.fc-input input:focus,
+.fc-input textarea:focus,
+.fc-api-2018 .fc-input input.fc-waiting-for-validation,
+.fc-api-2018 .fc-input textarea.fc-waiting-for-validation {
+  border-bottom: 1px solid var(--border-color);
+}
+
+@media (--ms-ie) {
+  /* fallback css var on IE */
+  .fc-input input,
+  .fc-input textarea {
+    font: normal 13px 'Work Sans', sans-serif;
+    border: 1px solid #ebebeb;
+    font-size: 13px;
+    color: #757575;
+  }
+}
+
+.fc-radio label:focus,
+.fc-legacy-form-tag:focus,
+.fc-dropdown:focus {
+  outline: none;
+}

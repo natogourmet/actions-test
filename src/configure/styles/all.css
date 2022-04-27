@@ -1,0 +1,30 @@
+/* @import './original_styles.css'; */
+
+@import './global.css';
+@import './commons/mixins.css';
+@import './normalize.css';
+@import './base.css';
+@import './layout.css';
+@import './buttons.css';
+@import './form.css';
+@import './product-display.css';
+@import './attributes-wrapper.css';
+@import './dropdown.css';
+@import './share/all.css';
+@import './snapshot.css';
+@import './pager/all.css';
+@import './accordion/all.css';
+@import './quantity/all.css';
+@import './cart/all.css';
+@import './attribute-selector.css';
+@import './button-selector.css';
+@import './tooltip.css';
+@import './rotate-zoom.css';
+@import './containers.css';
+@import './fullscreen.css';
+@import './loading.css';
+@import './webgl.css';
+@import './ar.css';
+@import './carousel.css';
+
+/* @import './original_styles_rest.css'; */

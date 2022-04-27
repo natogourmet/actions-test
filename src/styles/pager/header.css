@@ -1,0 +1,228 @@
+/*
+.fc-pager-header
+  .fc-pager-pulldown
+    .fc-button-pair.fc-outline-target
+      .fc-button.fc-fancy-button.fc-pager-pulldown-button.fc-outline-target
+        .fc-ripple-effect
+        .fc-button-label
+          .fc-icon-down-arrow
+  .fc-pager-current-name
+    .fc-pager-page-group-name
+    .fc-pager-page-name
+    .fc-pager-page-number
+  .fc-pager-buttons
+    .fc-pager-prev-wrapper
+      .fc-button-pair.fc-outline-target
+        .fc-button fc-fancy-button fc-pager-prev fc-disabled fc-disabled
+    .fc-pager-next-wrapper
+      .fc-button-pair fc-outline-target
+        ...
+
+*/
+
+@define-mixin header-swatch {
+  width: var(--swatch-header-size);
+  height: var(--swatch-header-size);
+
+  /* border: 1px solid var(--border-color); */
+  margin: 0;
+  margin-left: 10px;
+}
+
+#configure-container {
+  & .fc-pager-header {
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    box-shadow: none;
+    margin-bottom: 30px;
+    background-color: var(--adi-super-light-gray) /* border-top: 1px solid var(--border-color); */
+      /* border-bottom: 1px solid var(--border-color); */;
+    height: auto;
+
+    /* padding: 10px 20px; */
+    overflow: hidden;
+
+    & .fc-pager-grouper,
+    & .fc-attribute-header-custom-after-html-hook {
+      display: none;
+    }
+
+    & .fc-swatch {
+      /* @mixin header-swatch; */
+      display: none;
+    }
+
+    & > .fc-button-pair {
+      display: none;
+    }
+
+    & .fc-pager-buttons {
+      display: flex;
+      position: inherit;
+      height: 60px;
+      background-color: var(--adi-super-light-gray);
+
+      .fc-pager-adi-page {
+        display: flex;
+        align-items: center;
+        padding-top: 0.45rem;
+        color: var(--adi-darkest-gray);
+
+        @mixin label-large;
+
+        .fc-pager-adi-page-divisor {
+          padding: 0 0;
+        }
+
+        .fc-pager-adi-page-pages {
+          @mixin paragraph-small;
+        }
+      }
+      & .fc-pager-prev-wrapper,
+      & .fc-pager-next-wrapper {
+        width: 50%;
+      }
+
+      & .fc-button,
+      & .button-label {
+        height: 100%;
+        width: 100%;
+      }
+
+      & .fc-button-pair {
+        height: 100%;
+
+        & .fc-button {
+          position: relative;
+          font-size: 20px;
+        }
+      }
+
+      & .fc-icon-next,
+      & .fc-icon-prev {
+        position: absolute;
+        top: 47%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-size: 20px;
+
+        @mixin icon-arrow-thin-right before {
+          transform: rotate(0deg);
+          border: none;
+          top: 0;
+        }
+      }
+
+      /* & .fc-icon-next {
+      } */
+
+      & .fc-icon-prev {
+        @mixin icon-arrow-thin-right before {
+          transform: scaleX(-1);
+        }
+      }
+    }
+
+    & .fc-pager-pulldown {
+      position: relative;
+      z-index: 4;
+
+      & .fc-icon-down-arrow {
+        display: block;
+        height: 52px;
+        width: 52px;
+
+        &::after {
+          display: none;
+        }
+
+        &::before {
+          content: '\e90c';
+          display: none;
+          font-size: 21px;
+        }
+      }
+
+      & .fc-pager-pulldown-button {
+        width: 54px;
+        height: auto;
+        padding: 0;
+      }
+    }
+
+    & .fc-pager-current-name {
+      display: flex;
+      align-items: flex-start;
+      width: 100%;
+      padding: 0 140px 0 0;
+      flex-direction: column;
+      height: auto;
+      flex-wrap: wrap;
+
+      & .fc-pager-page-group-name {
+        display: none;
+      }
+
+      /*  Hide the swatch on header */
+      & .fc-aria-hidden.fc-swatch {
+        /* display: block; */
+        display: none;
+      }
+
+      & > span:first-child {
+        order: 3;
+        flex: 1;
+      }
+
+      & .fc-pager-page-name {
+        @mixin label-small;
+
+        order: 2;
+        color: var(--color-text);
+        margin-right: 5px;
+        padding-top: 5px;
+        white-space: initial;
+      }
+
+      & .fc-pager-page-number {
+        order: 1;
+        padding: 15px 0 0;
+        font-size: 12px;
+
+        /** hide the page number, but not the icon */
+        color: transparent;
+        position: absolute;
+        left: 0;
+        top: 0;
+        height: 100%;
+        width: 54px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+
+        @mixin icon-menu before {
+          width: 18px;
+          height: 24px;
+        }
+      }
+
+      & .fc-accessible-swatch {
+        color: var(--black);
+        @mixin paragraph-small-500;
+
+        display: flex;
+        align-items: center;
+        justify-content: left;
+        white-space: initial;
+        padding-top: 5px;
+        & > img {
+          @mixin header-swatch;
+        }
+      }
+    }
+  }
+}

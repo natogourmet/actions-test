@@ -1,0 +1,45 @@
+/* BTN SELECTOR */
+#configure-container {
+  & .fc-button-selector {
+    box-shadow: none;
+    margin: 0;
+
+    & .fc-fancy-button {
+      background: var(--background-tabs);
+      font: var(--font-main);
+      margin-right: 3px;
+      border: 1px solid var(--background-tabs);
+
+      &.fc-button-selected {
+        background: var(--background-tabs);
+        border: 1px solid var(--color-text);
+      }
+    }
+  }
+
+  & .fc-button-selector:focus,
+  & .fc-outline-target:focus {
+    outline: none;
+  }
+
+  & .fc-legacy-form-tag .fc-button-label {
+    line-height: 36px;
+  }
+}
+
+@media (--ms-ie) {
+  /* fallback css var on IE */
+  #configure-container {
+    & .fc-button-selector .fc-fancy-button {
+      background: #f3f3f3;
+      font: normal 13px 'Work Sans', sans-serif;
+      margin-right: 3px;
+      border: 1px solid #f3f3f3;
+    }
+
+    & .fc-button-selector .fc-fancy-button.fc-button-selected {
+      background: #f3f3f3;
+      border: 1px solid #101010;
+    }
+  }
+}

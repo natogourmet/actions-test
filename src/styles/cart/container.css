@@ -1,0 +1,102 @@
+/*
+
+Add to Cart container
+
+.configure-add-to-cart-container
+  .configure-quantity-container
+    .fc-quantity-selector
+      .fc-quantity-title
+      .fc-dropdown-container
+        .fc-quantity-list.fc-dropdown.fc-outline-target
+  .configure-add-to-cart-button
+    .fc-button-pair.fc-outline-target
+      .fc-button.fc-fancy-button.fc-add-to-cart-button.fc-outline-target
+        .fc-ripple-effect.fc-show
+        span.fc-button-label
+
+*/
+
+#configure-container {
+  & .fc-quantity-list,
+  & .configure-add-to-cart-button .fc-button-pair div.fc-button {
+    height: 50px;
+  }
+
+  & .configure-add-to-cart-container {
+    font: var(--font-bold);
+    font-size: 18px;
+    display: flex;
+    flex-wrap: wrap;
+
+    /* background-color: rgba(255, 255, 255, 0.95); */
+
+    /*
+    The background accordion hides in a fade transition
+    behind the the add to cart btn container
+    */
+    background: rgb(255, 255, 255);
+    background: linear-gradient(
+      0deg,
+      rgba(255, 255, 255, 0.95) 0%,
+      rgba(255, 255, 255, 0.95) 85%,
+      rgba(255, 255, 255, 0) 100%
+    );
+
+    /* Fix the position of the add to cart button to the bottom of the screen */
+    position: sticky;
+    bottom: 0;
+    z-index: 5;
+
+    & .configure-quantity-container {
+      width: 100px;
+      padding-right: 15px;
+
+      & .fc-quantity-title {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        margin: -1px;
+        border: 0;
+        padding: 0;
+        clip: rect(0 0 0 0);
+        overflow: hidden;
+      }
+
+      & .fc-quantity-list {
+        background-color: var(--theme-primary);
+      }
+    }
+
+    & .configure-add-to-cart-button {
+      width: 100%;
+    }
+  }
+}
+
+@media (--lower-than-md) {
+  #configure-container {
+    & .configure-add-to-cart-container {
+      padding: 0 34px 15px;
+      margin-left: -34px;
+      margin-right: -34px;
+      position: sticky;
+      bottom: 0;
+      flex-wrap: nowrap;
+    }
+  }
+}
+
+/* @media (--between-sm-md) {
+  #configure-container {
+    & .configure-add-to-cart-container {
+    }
+  }
+} */
+
+@media (--greater-than-md) {
+  #configure-container {
+    & .configure-add-to-cart-container {
+      padding: 40px var(--accordion-right-padding) 20px var(--accordion-left-padding);
+    }
+  }
+}

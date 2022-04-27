@@ -1,0 +1,45 @@
+/*
+
+CSS Global variables and configuration
+
+*/
+:root {
+  --theme-primary: #fff;
+  --theme-invert: #101010;
+  --color-text: #101010;
+  --color-text-secondary: #757575;
+  --color-text-invert: #fff;
+  --border-color: #ebebeb;
+  --border-color-error: #c03;
+  --color-info-icon: #b5b5b5;
+  --background-tabs: #f3f3f3;
+  --box-shadow: 0 2px 4px 0 rgba(16, 16, 16, 0.08);
+  --font-size-main: 13px;
+  --font-main: normal var(--font-size-main) 'Work Sans', sans-serif;
+  --font-bold: 500 var(--font-size-main) 'Work Sans', sans-serif;
+  --space-main: 20px;
+  --space-popup: 30px 30px 40px;
+  --size-popup-title: 20px;
+  --swatch-size: 35px;
+  --swatch-radius: 0;
+  --swatch-header-size: 25px;
+  --spinner-background: rgba(255, 255, 255, 0.7);
+  --spinner-size: 40px;
+  --spinner-width: 4px;
+  --spinner-loaded-circle-color: rgb(0, 0, 0);
+  --spinner-circle-color: rgba(0, 0, 0, 0.1);
+  --spinner-animation: 0.8s linear infinite;
+  --media-sm: 479px;
+  --media-md: 991px;
+  --media-xl: 1140px;
+}
+
+/* MEDIAQUERY
+
+@media screen and (max-width: 479px) // mobile
+@media screen and (min-width: 480px) and (max-width: 991px) // tablet
+@media screen and (max-width: 991px) // tablet
+@media screen and (min-width: 992px) // desktop
+@media screen and (max-width: 1140px) // bigger desktop
+
+MEDIAQUERY end */

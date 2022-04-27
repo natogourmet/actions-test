@@ -1,0 +1,176 @@
+@media print {
+  @page {
+    padding: 37.5pt 45pt 22.5pt;
+  }
+
+  :root {
+    --theme-primary: #fff;
+    --font-main: normal var(--font-size-main) 'Work Sans', sans-serif;
+  }
+
+  *,
+  *::before,
+  *::after {
+    box-sizing: inherit;
+  }
+
+  *:focus {
+    outline: none;
+  }
+
+  html {
+    box-sizing: border-box;
+  }
+
+  body {
+    -webkit-print-color-adjust: exact; /* FIXME: It should be removed because we use autoprefixer */
+    margin: 0;
+    padding: 0;
+    font: var(--font-main);
+    line-height: 1.3;
+    background-color: var(--theme-primary);
+  }
+
+  img {
+    max-width: 650px;
+  }
+
+  .fc-print-product-name {
+    text-transform: uppercase;
+    font-size: 28px;
+    font-weight: bold;
+    color: #101010;
+    margin-bottom: 22.5pt;
+  }
+
+  .fc-print-url {
+    margin-top: 22.5pt;
+    margin-bottom: 22.5pt;
+  }
+
+  .fc-print-url a {
+    color: #101010;
+  }
+
+  .fc-print-product-details {
+    border-top: 1px solid #ebebeb;
+    border-bottom: 1px solid #ebebeb;
+    padding-top: 22.5pt;
+    padding-bottom: 40px;
+  }
+
+  .fc-print-product-details-title {
+    font: 500 18px 'Work Sans', sans-serif;
+    margin-bottom: 22.5pt;
+  }
+
+  .fc-print-price {
+    margin-top: 22.5pt;
+    margin-bottom: 22.5pt;
+    font: 500 15px 'Work Sans', sans-serif;
+  }
+
+  .fc-print-attributes {
+    display: table;
+    page-break-inside: auto;
+    break-inside: auto;
+  }
+
+  .fc-print-attribute {
+    width: 33.3%;
+    margin-bottom: 22.5pt;
+    page-break-inside: avoid;
+    break-inside: avoid;
+    display: inline-block;
+    float: left;
+    overflow: hidden;
+  }
+
+  .fc-print-attribute:nth-child(3n + 1) {
+    clear: both;
+  }
+
+  .fc-print-swatch {
+    width: 75pt;
+    height: 52.5pt;
+    float: left;
+    display: block;
+    position: relative;
+    page-break-before: always;
+  }
+
+  .fc-print-swatch > span {
+    font: normal 20px 'Work Sans', sans-serif;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .fc-print-attribute-color-swatch {
+    border: 1px solid #f3f3f3;
+  }
+
+  .fc-print-attribute-swatch-empty,
+  .fc-print-attribute-add_monogram .fc-print-attribute-color-swatch,
+  .fc-print-attribute-size .fc-print-attribute-color-swatch,
+  .fc-print-attribute-heel_clipart .fc-print-attribute-color-swatch,
+  .fc-print-attribute-image {
+    background-color: #f3f3f3 !important;
+  }
+
+  .fc-print-attribute-image,
+  .fc-print-attribute-clip-art-image {
+    border: 1px solid #f3f3f3;
+    background-size: cover;
+    background-position: 50% 50%;
+  }
+
+  .fc-print-attribute-details {
+    margin-left: 85pt;
+    margin-right: 10pt;
+  }
+
+  .fc-print-attribute-name {
+    font: normal 15px 'Work Sans', sans-serif;
+    color: #101010;
+    text-transform: uppercase;
+  }
+
+  .fc-print-attribute-name:not(:last-child) {
+    margin-bottom: 3.75pt;
+  }
+
+  .fc-print-attribute-value {
+    font: normal 13px 'Work Sans', sans-serif;
+    color: #757575;
+  }
+
+  .fc-print-attribute-value:not(:last-child) {
+    margin-bottom: 11.25pt;
+  }
+
+  .fc-print-attribute-upcharge {
+    display: block;
+    font: 500 13px 'Work Sans', sans-serif;
+    color: #101010;
+  }
+
+  .fc-print-attribute-checkbox .fc-print-attribute-color-swatch {
+    position: relative;
+  }
+
+  .fc-print-attribute-checkbox .fc-print-attribute-color-swatch::before {
+    display: block;
+    content: '';
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' x='0px' y='0px' viewBox='0 0 496 496' style='enable-background:new 0 0 496 496;' xml:space='preserve'%3E%3Cg%3E%3Cg%3E%3Cg%3E%3Cpath fill='%23101010' d='M248,0C111.033,0,0,111.033,0,248s111.033,248,248,248s248-111.033,248-248C495.841,111.099,384.901,0.159,248,0z M248,480C119.87,480,16,376.13,16,248S119.87,16,248,16s232,103.87,232,232C479.859,376.072,376.072,479.859,248,480z'/%3E%3Cpath fill='%23101010' d='M370.344,158.344L208,320.688l-82.344-82.344c-3.178-3.07-8.242-2.982-11.312,0.196c-2.994,3.1-2.994,8.015,0,11.116 l88,88c3.124,3.123,8.188,3.123,11.312,0l168-168c3.07-3.178,2.982-8.242-0.196-11.312 C378.359,155.35,373.444,155.35,370.344,158.344z'/%3E%3C/g%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+}

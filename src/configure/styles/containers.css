@@ -1,0 +1,24 @@
+#configure-container {
+  & .configure-display-container .loadbar-border .loadbar-progress {
+    height: 5px;
+    background-color: #999;
+  }
+
+  & .button-container {
+    margin: 2em 0;
+  }
+
+  & .configure-ui {
+    overflow: hidden;
+    height: 248px;
+    width: 100%;
+  }
+}
+
+@media (--lower-than-sm) {
+  #configure-container {
+    & .configure-display-container {
+      padding-right: 0;
+    }
+  }
+}

@@ -1,0 +1,89 @@
+/*
+.fc-dialog-wrapper-container fc-dialog-wrapper-0
+  .fc-dialog-wrapper
+    .fc-dialog-backdrop
+    .fc-dialog-container
+      .fc-dialog.fc-dialog-type-pager-attribute-list
+        .fc-dialog-header.fc-dialog-no-title
+          .fc-dialog-close
+            .fc-button-pair.fc-outline-target
+              button.fc-default-button
+        fc-dialog-body
+          ...
+*/
+
+.fc-dialog-type-pager-attribute-list {
+  & .fc-dialog-body {
+    overflow: auto;
+    max-width: 100%;
+  }
+
+  & .fc-pager-attribute-list,
+  & .fc-pager-pulldown-list {
+    max-width: 100%;
+    box-shadow: none;
+  }
+
+  & .fc-pager-pulldown-list {
+    & > li {
+      padding-top: 17px;
+      padding-bottom: 17px;
+      border-top: 1px solid var(--border-color);
+    }
+  }
+
+  & .fc-attribute-list-header {
+    &::before,
+    &::after {
+      display: none;
+    }
+
+    & > span:first-child {
+      margin-right: 0;
+    }
+  }
+
+  & .fc-swatch {
+    border: 1px solid var(--border-color);
+  }
+
+  & .fc-pager-pulldown-item {
+    padding: 0;
+  }
+}
+
+@media (--lower-than-sm) {
+  .fc-dialog-type-pager-attribute-list {
+    width: calc(100% - 30px);
+  }
+}
+
+@media (--lower-than-md) {
+  .fc-dialog-type-pager-attribute-list {
+    position: absolute !important;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) !important;
+  }
+
+  .fc-dialog-container .fc-dialog.fc-dialog-type-pager-attribute-list {
+    padding-bottom: 8px;
+  }
+}
+
+@media (--between-sm-md) {
+  .fc-dialog-type-pager-attribute-list {
+    max-width: 400px;
+  }
+}
+
+@media (--ms-ie) {
+  /* fallback css var on IE */
+  .fc-dialog-type-pager-attribute-list .fc-attribute-list-header > span:first-child {
+    border: 1px solid #ebebeb;
+  }
+
+  .fc-dialog-type-pager-attribute-list .fc-swatch {
+    border-top: 1px solid #ebebeb;
+  }
+}

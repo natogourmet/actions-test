@@ -1,0 +1,53 @@
+/** CSS for Custom messaging */
+
+#configure-container {
+  /** Product-level message */
+  & .configure-product-message {
+    display: none;
+
+    /** Class added when the message must be shown */
+    &.fc-product-message-show {
+      display: flex;
+      background-color: var(--adi-super-light-gray);
+      padding: 15px 20px;
+      margin: 20px 40px 0 0;
+    }
+
+    /** Close button */
+    & .fc-button {
+      margin-left: 10px;
+    }
+
+    /** Product message text */
+    & .fc-product-message-text {
+      margin-top: 2px;
+    }
+
+    /** Warning Icon on the left */
+    & .fc-product-message-avatar {
+      margin-right: 10px;
+
+      /**
+      * We use CSS to change the circle and letter colors
+      */
+      & svg {
+        .background {
+          fill: var(--adi-feedback-yellow);
+        }
+
+        .letter {
+          fill: var(--black);
+        }
+      }
+    }
+  }
+
+  /** Attribute-level message */
+  & .fc-accordion .fc-accordion-panel {
+    & .ca-message-text {
+      color: var(--adi-sale-red);
+      margin-bottom: 10px;
+      line-height: 20px;
+    }
+  }
+}

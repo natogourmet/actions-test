@@ -1,0 +1,76 @@
+/*
+
+Add to cart dialog
+
+.fc-dialog-wrapper-container
+  .fc-dialog-wrapper
+    .fc-dialog-backdrop
+    .fc-dialog-container
+      .fc-dialog.fc-dialog-type-html.fc-error-dialog
+        .fc-dialog-header
+          .fc-dialog-header-title
+          .fc-dialog-close
+        .fc-dialog-body
+          ...
+          .fc-dialog-error-footer
+            button.fc-button-black
+
+*/
+
+.fc-dialog-container {
+  & .fc-dialog-type-html {
+    & .fc-dialog-body {
+      & div {
+        max-width: 100%;
+      }
+    }
+  }
+}
+
+.fc-add-to-cart-dialog a {
+  color: inherit;
+}
+
+.fc-add-to-cart-dialog-image {
+  width: 100%;
+  max-width: 317px;
+  border: 1px solid var(--border-color);
+  margin-bottom: 30px;
+}
+
+.fc-add-to-cart-dialog-text {
+  margin: 30px 0;
+
+  & p {
+    margin: 5px 0;
+  }
+}
+
+.fc-add-to-cart-dialog-action button {
+  min-width: 170px;
+  height: 54px;
+}
+
+@media (--lower-than-sm) {
+  .fc-add-to-cart-dialog-image {
+    max-width: auto;
+  }
+
+  .fc-add-to-cart-dialog-action button {
+    width: 100%;
+    min-width: auto;
+  }
+}
+
+@media (--between-sm-md) {
+  .fc-add-to-cart-dialog-action button {
+    min-width: 221px;
+  }
+}
+
+@media (--ms-ie) {
+  /* fallback css var on IE */
+  .fc-add-to-cart-dialog-image {
+    border: 1px solid #ebebeb;
+  }
+}

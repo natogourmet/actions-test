@@ -1,0 +1,33 @@
+name: Build and deploy tag
+
+# Run for all tags except releases (ie. tags without Semver format)
+# - Checkouts the pushed tag
+# - Builds and tests the project
+# - Deploys the application to Github Pages (tags/[tag name])
+on:
+  push:
+    tags-ignore:
+      - v*.*.*
+
+jobs:
+  build:
+    uses: martinmoscovich/gh-actions/.github/workflows/npm-build.yml@v3
+    with:
+      node_version: 14
+      dist_dir: dist
+
+  deploy:
+    name: Deploy
+    needs: build
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Extract branch or tag name
+        uses: tj-actions/branch-names@v5
+        id: extract_branch
+
+      - name: Deploy to GH Pages
+        uses: martinmoscovich/gh-actions/gh-deploy@v3
+        with:
+          to: tags/${{ steps.extract_branch.outputs.current_branch }}
+          github_token: ${{ secrets.GITHUB_TOKEN }}

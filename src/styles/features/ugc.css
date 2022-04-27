@@ -1,0 +1,73 @@
+.fc-attribute-selector-ugc {
+  display: none;
+
+  & + .fc-attribute-selector-custom-after-html-hook {
+    margin-bottom: 1rem;
+    .fc-custom-upload-ugc {
+      font: var(--font-bold);
+      letter-spacing: 1px;
+      background-color: transparent;
+      border: 1px solid #000;
+      font-weight: bold;
+      line-height: 3rem;
+      padding: 0 1.5rem;
+      cursor: pointer;
+      margin-right: 0.5rem;
+      text-transform: uppercase;
+      font-size: 0.8rem;
+    }
+    .fc-ugc-change-image {
+      font-size: 0.8rem;
+      color: #000;
+      font-weight: 700;
+    }
+    .fc-ugc-uploaded-image {
+      margin-top: 2rem;
+      .fc-ugc-image-title {
+        font-weight: bold;
+        font-size: 0.9rem;
+        letter-spacing: 1px;
+      }
+      .fc-ugc-uploaded-image-container {
+        position: relative;
+        display: inline-block;
+        width: 100px;
+        height: 100px;
+        border: 1px solid #000;
+        img {
+          position: absolute;
+          top: 0;
+          bottom: 0;
+          margin: auto;
+        }
+      }
+      .fc-ugc-image-name {
+        display: inline-block;
+        vertical-align: top;
+        margin-left: 1rem;
+        font-size: 0.9rem;
+
+        .fc-ugc-image-name-main-name {
+          margin: 0;
+          margin-bottom: 0.5rem;
+          font-weight: bold;
+          text-transform: uppercase;
+          font-size: 1rem;
+        }
+        .fc-ugc-image-name-filename {
+          margin: 0;
+          color: #bbb;
+        }
+        .fc-ugc-image-name-edit-link {
+          margin: 0;
+          margin-top: 1.2rem;
+
+          a {
+            color: #000;
+            font-weight: 700;
+          }
+        }
+      }
+    }
+  }
+}

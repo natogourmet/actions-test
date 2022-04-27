@@ -1,0 +1,20 @@
+name: Promote to Staging
+
+# Executed manually
+# - Downloads the specified release's artifact
+# - Deploys the artifact to staging
+on:
+  workflow_dispatch:
+    inputs:
+      release-version:
+        description: 'Release version tag'
+        required: true
+
+jobs:
+  promote:
+    name: Promote to Staging
+    uses: martinmoscovich/gh-actions/.github/workflows/promote.yml@v4
+    with:
+      to: staging
+      tag: ${{ github.event.inputs.release-version }}
+      release_filename: '${{ github.event.repository.name }}-${{ github.event.inputs.release-version }}.zip'

@@ -1,0 +1,327 @@
+/*
+
+More actions menu. It display options like: Snapshot, Rotate, Start Over, Randomize, etc.
+
+.configure-dropdown-wrap
+  .configure-rotate-n-zoom-container
+  .configure-dropdown-menu
+    .configure-dropdown-menuitem
+      .configure-dropdown-submenu
+
+*/
+
+:root {
+  --desktop-dropdown-width: 315px;
+  --mobile-dropdown-width: 235px;
+}
+@define-mixin dropdown-fc-button-label {
+  & .fc-button-label {
+    & > span {
+      display: none;
+    }
+  }
+}
+
+@define-mixin dropdown-fc-button $icon {
+  & .fc-button {
+    display: flex;
+    align-items: center;
+    & > span {
+      display: none;
+    }
+    @mixin-content;
+  }
+}
+
+#configure-container {
+  & .configure-share-button-container + .configure-dropdown-submenu {
+    border: none !important;
+    width: 0;
+    & > li {
+      left: -100px;
+      &::before {
+        @mixin triangle;
+      }
+    }
+  }
+
+  & .configure-dropdown-menu {
+    display: none;
+    padding: 0;
+    margin: 0;
+
+    & .configure-share-title {
+      font: var(--font-bold);
+      font-size: 15px;
+      padding-bottom: 15px;
+      margin-top: 0;
+      margin-bottom: 17px;
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    & .configure-dropdown-menuitem {
+      list-style: none;
+      position: relative;
+
+      /* Menu item button: View snapshot, Start over, Print */
+      & .fc-button {
+        padding: 10px 0;
+      }
+
+      /* More action menu button when close */
+      & > button:not(.configure-share-button-container) {
+        border: none;
+        color: var(--color-text);
+        padding: 5px 12px 0;
+        min-height: 47px;
+        background-color: transparent;
+        font: var(--font-main);
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+
+        & span {
+          @mixin paragraph-small;
+
+          text-decoration: underline;
+          text-underline-offset: 2px;
+          margin-top: -7px;
+        }
+
+        @mixin icon-setting before {
+          margin-right: 9px;
+          margin-bottom: 9px;
+          display: inline-block;
+        }
+      }
+
+      /* More action button when menu opened */
+      & button:not(.configure-share-button-container).fc-dropdown-active {
+        border: 1px solid;
+
+        /* @mixin icon-dropdown-cross before; */
+        @mixin icon-close before {
+          padding-right: 7px;
+          padding-top: 2px;
+          margin-top: 5px;
+          border-right: 2px solid var(--adi-light-gray);
+        }
+
+        & span {
+          font-size: 0;
+        }
+      }
+
+      & .fc-button-raise,
+      .fc-ripple-effect.fc-show {
+        animation: none;
+        box-shadow: none;
+      }
+    }
+
+    /* More action submenu */
+    & .configure-dropdown-submenu {
+      display: flex;
+      visibility: hidden;
+      overflow: hidden;
+      width: 95%;
+      height: 0;
+      & .configure-dropdown-menuitem {
+        /* margin: 0 0; */
+
+        &.configure-print-button {
+          margin-left: 0;
+        }
+      }
+
+      /* & .configure-snapshots {
+        border-left: 1px solid var(--adi-light-gray);
+      } */
+
+      &.fc-dropdown-active {
+        visibility: visible;
+        overflow: visible;
+        height: 100%;
+        max-width: var(--desktop-dropdown-width);
+        position: absolute;
+        background-color: var(--adi-super-light-gray);
+        left: 40px;
+        top: 0;
+        box-shadow: none;
+        border: 1px solid var(--black);
+        border-left: none;
+        padding: 0;
+        padding-right: 7px;
+        padding-left: 3px;
+        font-size: var(--font-size-main);
+        display: flex;
+        align-items: center;
+        color: var(--color-text);
+      }
+    }
+
+    /* Start over icon */
+    & .configure-reset-recipe-container {
+      padding-left: 25px;
+      @mixin dropdown-fc-button {
+        @mixin icon-start-over before;
+      }
+    }
+
+    /* Randomize icon */
+    & .configure-randomize-recipe-button {
+      padding-left: 22px;
+      margin-top: -2px;
+      @mixin dropdown-fc-button {
+        @mixin icon-randomize before;
+      }
+    }
+
+    /* Share icon */
+    & .configure-share-button-container {
+      margin-left: 14px;
+      padding-left: 4px;
+      padding-top: 4px;
+      left: -50px;
+      background-color: transparent;
+      @mixin icon-share before;
+      @mixin dropdown-fc-button-label;
+      & .fc-button-pair {
+        display: none;
+      }
+    }
+
+    /* Print icon */
+    & .configure-print-button {
+      padding: 1px 8px 0 19px;
+      @mixin dropdown-fc-button {
+        @mixin icon-print before;
+      }
+      @mixin dropdown-fc-button-label;
+    }
+  }
+}
+
+@media (--lower-than-md) {
+  #configure-container {
+    & .configure-dropdown-wrap {
+      width: 100%;
+      position: static;
+      order: 3;
+    }
+
+    & .configure-rotate-n-zoom-container {
+      display: none;
+    }
+
+    & .configure-dropdown-menu {
+      display: none;
+      position: absolute;
+
+      /* min-width: 361px; */
+      left: 5px;
+      bottom: 5px;
+      z-index: 6;
+
+      /* Hide the gear button border and 'More Actions label" */
+      & .configure-dropdown-menuitem {
+        & > button {
+          & > span {
+            display: none;
+          }
+
+          &:not(.configure-share-button-container):not(.fc-dropdown-active) {
+            border-color: transparent;
+            background: transparent;
+            box-shadow: none;
+          }
+        }
+      }
+
+      & .configure-dropdown-menu .configure-dropdown-menuitem > button:not(.configure-share-button-container)::before {
+        margin-right: 0;
+      }
+
+      & .configure-print-button {
+        display: none;
+      }
+
+      & .configure-dropdown-submenu {
+        /*
+        CSS Trick for mobile
+        For mobile, reset button into dropdown must be moved out of it
+        and displayed always in the bottom-right corner of the
+        product display.
+        */
+        & .configure-reset-recipe-container {
+          /* The possition is independient of the normal flow of ul */
+          position: absolute;
+
+          /* Force the visibility of the children. Even if the parent is hidden, it is displayed */
+          visibility: visible;
+
+          /*
+          Positionate the element in the bottom-right of the product display:
+          position= viewport width - menu width - button width
+          */
+          right: calc(-100vw + var(--mobile-dropdown-width) + 46px);
+          margin-top: -45px;
+        }
+
+        &.fc-dropdown-active {
+          min-width: var(--mobile-dropdown-width);
+
+          /* Fix reset icon position when dropdown is opened */
+          & .configure-reset-recipe-container {
+            margin-top: -2px;
+            margin-right: 14px;
+          }
+
+          /* Safari (10.1+) */
+          @media not all and (min-resolution: 0.001dpcm) {
+            @media {
+              & .configure-reset-recipe-container {
+                margin-top: 1px;
+                margin-right: 14px;
+              }
+            }
+          }
+        }
+
+        /*  End of mobile CSS trick */
+      }
+
+      /* Share icon */
+      & .configure-share-button-container {
+        padding-right: 10px;
+      }
+
+      /* Share submenu */
+      & .configure-share-button-container + .configure-dropdown-submenu {
+        max-width: 0;
+        min-width: 0;
+        & > li {
+          left: -185px;
+        }
+      }
+    }
+  }
+}
+
+@media (--greater-than-md) {
+  #configure-container {
+    & .configure-dropdown-wrap {
+      /* min-height: 47px; */
+      position: absolute;
+      left: 20px;
+      right: 0;
+      bottom: 40px;
+    }
+
+    & .configure-dropdown-menu {
+      width: 100%;
+
+      /* max-width: 361px; */
+    }
+  }
+}

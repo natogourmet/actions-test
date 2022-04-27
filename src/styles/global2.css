@@ -1,0 +1,91 @@
+/*
+
+CSS Global variables and configuration
+
+*/
+
+:root {
+  --white: #fff;
+  --black: #000;
+  --transparent: rgba(255, 255, 255, 0);
+  --adi-main-blue: #0285cc;
+  --adi-dark-blue: #025f8e;
+  --adi-super-light-gray: #f8f8f8;
+  --adi-lightest-gray: #ebedee;
+  --adi-light-gray: #d9dcdd;
+  --adi-medium-gray: #98989a;
+  --adi-dark-gray: #767677;
+  --adi-darkest-gray: #363738;
+  --adi-sale-red: #c53622;
+  --adi-feedback-yellow: #ffb402;
+  --adi-new-green: #92d3a0;
+  --adi-green-dark: #0a5;
+  --adi-search-highlight: #52c1b8;
+  --theme-primary: var(--white);
+  --theme-invert: var(--black);
+  --color-text: var(--black);
+  --color-text-secondary: var(--adi-medium-gray);
+  --color-text-invert: var(--white);
+  --color-disabled-background: var(--adi-light-gray);
+  --color-disabled-border: var(--adi-light-gray);
+  --color-disabled-text: var(--white);
+  --color-hover: var(--adi-medium-gray);
+  --border-color: var(--adi-lightest-gray);
+  --border-color-error: var(--adi-sale-red);
+  --button-shadow-size: 3px;
+  --color-info-icon: #b5b5b5;
+  --background-tabs: #f3f3f3;
+  --box-shadow: 0 2px 4px 0 rgba(16, 16, 16, 0.08);
+  --font-adihaus-din-400: 'FcAdihausDIN400', arial, sans-serif;
+  --font-adihaus-din-500: 'FcAdihausDIN500', arial, sans-serif;
+  --font-adihaus-din-700: 'FcAdihausDIN700', arial, sans-serif;
+  --font-adinue-chop-700: 'FcAdineueCHOP700', arial, sans-serif;
+  --font-adinue-chop-900: 'FcAdineueCHOP900', arial, sans-serif;
+  --font-adi-text-700: 'FcAdiText700', arial, sans-serif;
+  --font-adipro-regular: 'FcAdineueproRegular', arial, sans-serif;
+  --font-adipro-700: 'FcAdineuepro700', arial, sans-serif;
+  --font-size-main: 14px;
+  --font-main: normal var(--font-size-main) var(--font-adihaus-din-400);
+  --font-bold: bold var(--font-size-main) var(--font-adihaus-din-700);
+  --space-main: 20px;
+  --space-popup: 30px 30px 40px;
+  --size-popup-title: 20px;
+  --swatch-size: 60px;
+  --swatch-radius: 60px;
+  --swatch-header-size: 25px;
+  --spinner-background: rgba(255, 255, 255, 0.7);
+  --spinner-size: 40px;
+  --spinner-width: 4px;
+  --spinner-loaded-circle-color: rgb(0, 0, 0);
+  --spinner-circle-color: rgba(0, 0, 0, 0.1);
+  --spinner-animation: 0.8s linear infinite;
+  --media-sm: 320px;
+  --media-md: 1024px;
+  --media-xl: 1140px;
+  --padding-00: 0;
+  --padding-01: 10px;
+  --padding-02: 15px;
+  --padding-03: 20px;
+  --padding-04: 30px;
+  --padding-05: 40px;
+  --padding-06: 50px;
+  --padding-07: 60px;
+  --padding-08: 80px;
+  --padding-09: 120px;
+  --padding-10: 160px;
+  --padding-11: 192px;
+  --padding-12: 216px;
+  --padding-13: 264px;
+  --accordion-left-padding: 40px;
+  --accordion-right-padding: 45px;
+}
+
+/* MEDIAQUERY
+
+@media screen and (max-width: 479px) // mobile
+@media screen and (min-width: 480px) and (max-width: 991px) // tablet
+@media screen and (max-width: 991px) // tablet
+@media screen and (min-width: 992px) // desktop
+@media screen and (max-width: 1140px) // bigger desktop
+
+MEDIAQUERY end */

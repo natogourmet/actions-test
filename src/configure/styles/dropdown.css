@@ -1,0 +1,265 @@
+/*
+
+More actions menu. It display options like: Snapshot, Rotate, Start Over, Randomize, etc.
+
+.configure-dropdown-wrap
+  .configure-rotate-n-zoom-container
+  .configure-dropdown-menu
+    .configure-dropdown-menuitem
+      .configure-dropdown-submenu
+
+*/
+
+#configure-container {
+  /* TODO: Maybe we could use mixins to reduce verbose code */
+
+  /* Reset and Randomize */
+  & .configure-reset-recipe-container .fc-button,
+  & .configure-randomize-recipe-button .fc-button {
+    display: flex;
+    align-items: center;
+  }
+
+  /* Reset icon */
+  & .configure-reset-recipe-container .fc-button::before {
+    content: '\e90a';
+  }
+
+  /* Randomize icon */
+  & .configure-randomize-recipe-button .fc-button::before {
+    content: '\e900';
+  }
+
+  /* Share icon */
+  & .configure-dropdown-wrap .configure-dropdown-menu .configure-share-button-container::before {
+    content: '\e909';
+  }
+
+  & .configure-share-button-container .fc-button-label,
+  & .configure-share-button-container .fc-button-pair {
+    display: none;
+  }
+
+  & .configure-share-button-container + .configure-dropdown-submenu > li::before {
+    @mixin triangle;
+  }
+
+  /* Print icon */
+  & .configure-print-button .fc-button::before {
+    content: '\e908';
+  }
+
+  /* Share and Print */
+  & .configure-share-container .fc-button-label > span,
+  & .configure-print-button .fc-button-label > span {
+    display: none;
+  }
+
+  /* Randomize, Reset, Dropdown and Print */
+  & .configure-randomize-recipe-button .fc-button::before,
+  & .configure-reset-recipe-container .fc-button::before,
+  & .configure-dropdown-wrap .configure-dropdown-menu .configure-share-button-container::before,
+  & .configure-print-button .fc-button::before {
+    display: inline-block;
+    font-size: 21px;
+    margin-right: 7px;
+    color: var(--color-text);
+    cursor: pointer;
+  }
+
+  & .configure-dropdown-menu {
+    display: none;
+    padding: 0;
+    margin: 0;
+
+    & .configure-share-title {
+      font: var(--font-bold);
+      font-size: 15px;
+      padding-bottom: 15px;
+      margin-top: 0;
+      margin-bottom: 17px;
+      border-bottom: 1px solid var(--border-color);
+    }
+  }
+
+  & .configure-dropdown-menuitem {
+    list-style: none;
+    position: relative;
+
+    & .fc-button {
+      padding: 10px 0;
+    }
+
+    & button.fc-dropdown-active {
+      &::before {
+        content: '\e913';
+        display: block;
+        font-size: 18px;
+        color: var(--color-text);
+        margin-right: 0;
+      }
+
+      & span {
+        font-size: 0;
+      }
+    }
+
+    & > button:not(.configure-share-button-container)::before {
+      content: '\e906';
+      display: inline-block;
+      font-size: 22px;
+      color: var(--color-text);
+      margin-right: 7px;
+    }
+
+    & > button:not(.configure-share-button-container) {
+      box-shadow: var(--box-shadow);
+      border: 1px solid var(--border-color);
+      color: var(--color-text);
+      padding: 15px;
+      background-color: var(--theme-primary);
+      font: var(--font-main);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+    }
+
+    & .fc-button-raise,
+    .fc-ripple-effect.fc-show {
+      animation: none;
+      box-shadow: none;
+    }
+  }
+
+  & .configure-dropdown-submenu {
+    display: none;
+    & .configure-dropdown-menuitem {
+      margin: 0 12px;
+
+      &.configure-print-button {
+        margin-left: 0;
+      }
+    }
+
+    &.fc-dropdown-active {
+      position: absolute;
+      height: 100%;
+      background-color: var(--theme-primary);
+      left: 50px;
+      top: 0;
+      box-shadow: var(--box-shadow);
+      border: 1px solid var(--border-color);
+      border-left: none;
+      padding: 0;
+      padding-right: 7px;
+      padding-left: 3px;
+      font-size: var(--font-size-main);
+      display: flex;
+      align-items: center;
+      color: var(--color-text);
+    }
+  }
+}
+
+@media (--lower-than-md) {
+  #configure-container {
+    & .configure-dropdown-wrap {
+      width: 100%;
+      position: static;
+      order: 3;
+    }
+
+    & .configure-dropdown-menu {
+      display: none;
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      z-index: 6;
+
+      /* Hide the gear button border and 'More Actions label" */
+      & .configure-dropdown-menuitem {
+        & > button {
+          & > span {
+            display: none;
+          }
+
+          &:not(.configure-share-button-container):not(.fc-dropdown-active) {
+            border-color: transparent;
+            background: transparent;
+            box-shadow: none;
+          }
+        }
+      }
+
+      & .configure-dropdown-menu .configure-dropdown-menuitem > button:not(.configure-share-button-container)::before {
+        margin-right: 0;
+      }
+
+      & .configure-print-button {
+        display: none;
+      }
+    }
+  }
+}
+
+@media (--greater-than-md) {
+  #configure-container {
+    & .configure-dropdown-wrap {
+      min-height: 54px;
+      position: absolute;
+      left: 20px;
+      right: 0;
+      bottom: 20px;
+    }
+
+    & .configure-dropdown-menu {
+      width: 100%;
+      max-width: 570px;
+    }
+  }
+}
+
+@media (--ms-ie) {
+  /* fallback css var on IE */
+
+  #configure-container {
+    & .configure-dropdown-menuitem > button:not(.configure-share-button-container) {
+      box-shadow: 0 2px 4px 0 rgba(16, 16, 16, 0.05);
+      border: 1px solid #ebebeb;
+      color: #101010;
+      background: #fff;
+      font: normal 13px 'Work Sans', sans-serif;
+    }
+
+    & > button:not(.configure-share-button-container)::before {
+      color: #101010;
+    }
+
+    & .configure-dropdown-menuitem button.fc-dropdown-active::before {
+      color: #101010;
+    }
+
+    & .configure-dropdown-menuitem .configure-dropdown-submenu.fc-dropdown-active {
+      background-color: #fff;
+      box-shadow: 0 2px 4px 0 rgba(16, 16, 16, 0.05);
+      border: 1px solid #ebebeb;
+      font-size: 13px;
+      color: #101010;
+    }
+
+    & .configure-dropdown-menuitem .fc-button-label {
+      font: normal 13px 'Work Sans', sans-serif;
+    }
+
+    & .configure-randomize-recipe-button .fc-button::before,
+    & .configure-reset-recipe-container .fc-button::before,
+    & .configure-share-button-container::before,
+    & .configure-print-button .fc-button::before,
+    & .fc-snapshots-take-entry-icon::before {
+      color: #101010;
+    }
+    & .configure-share-button-container + .configure-dropdown-submenu > li::before {
+      border-color: #fff transparent transparent transparent;
+    }
+  }
+}

@@ -1,0 +1,5 @@
+@custom-media --lower-than-sm screen and (max-width: 479px);
+@custom-media --lower-than-md screen and (max-width: 991px);
+@custom-media --between-sm-md screen and (min-width: 480px) and (max-width: 991px);
+@custom-media --greater-than-md screen and (min-width: 992px);
+@custom-media --ms-ie screen and (-ms-high-contrast: active), (-ms-high-contrast: none);

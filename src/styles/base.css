@@ -1,0 +1,42 @@
+/*
+
+Golbal HTML settings.
+
+*/
+html {
+  box-sizing: border-box;
+  font-size: var(--font-size-main);
+}
+
+/* these lines fixed ios problems when the focus is on textfields, selects or
+  some components that opens the keyboard or the roller
+  https://bugs.webkit.org/show_bug.cgi?id=138201
+*/
+
+/* html, body {
+  -webkit-overflow-scrolling: touch;
+  overflow: auto;
+} */
+
+body {
+  margin: 0;
+  padding: 0;
+  font: var(--font-main);
+  line-height: 1.3;
+
+  /* background: var(--adi-super-light-gray); */
+
+  /* Generte the ilusion of extend the gray margin to the right and the white margin to the left */
+
+  background: linear-gradient(90deg, var(--adi-super-light-gray) 60%, var(--white) 40%);
+}
+
+@media (--lower-than-md) {
+  body {
+    background: var(--white);
+  }
+}
+
+img {
+  max-width: 100%;
+}

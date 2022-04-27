@@ -1,0 +1,39 @@
+#configure-container {
+  & .configure-rotate-n-zoom-container {
+    line-height: 20px;
+    display: none;
+    align-items: center;
+    position: absolute;
+    bottom: 0;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: var(--black);
+
+    @mixin icon-rotate before {
+      margin-top: -2px;
+    }
+
+    & .configure-rotate-n-zoom {
+      @mixin paragraph-small;
+
+      padding-left: 6px;
+    }
+
+    /* &::before {
+      display: inline-block;
+      content: '\e901';
+      font-size: 16px;
+      margin-right: 10px;
+      color: var(--color-text-secondary);
+    } */
+  }
+}
+
+@media (--lower-than-md) {
+  #configure-container {
+    & .fc-product-info .fc-product-name {
+      /* font-size: 25px; */
+    }
+  }
+}

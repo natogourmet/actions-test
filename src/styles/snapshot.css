@@ -1,0 +1,41 @@
+#configure-container {
+  /* FIXME: Overflow auto of snapshot view breaks More Actions shadow */
+
+  /* & .fc-snapshots .fc-snapshots-list-container {
+    max-height: 100% !important;
+    overflow: hidden !important;
+  } */
+  & .configure-snapshots {
+    & .fc-snapshots {
+      margin-left: 12px;
+
+      & .fc-snapshots-content {
+        left: -60px;
+      }
+      & .fc-snapshots-controls {
+        & .fc-snapshots-take-wrapper {
+          & .fc-snapshots-take-entry-icon {
+            @mixin icon-snapshot before;
+
+            border: none;
+            padding-right: 0;
+            margin-top: -1px;
+            margin-left: -5px;
+          }
+        }
+
+        & .fc-snapshots-view-wrapper {
+          & .fc-snapshots-view-button {
+            @mixin paragraph-small;
+
+            line-height: 20px;
+            margin-left: 8px;
+            margin-top: 2px;
+            text-decoration: underline;
+            text-underline-offset: 2px;
+          }
+        }
+      }
+    }
+  }
+}

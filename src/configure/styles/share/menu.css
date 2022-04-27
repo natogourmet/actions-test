@@ -1,0 +1,106 @@
+/*
+.configure-share-button-container.fc-dropdown-active
+  ...
+    .menuitem
+      .configure-share-title
+      .configure-share-container
+        .fc-share-dialog-list
+          .fc-share-[email, facebook, twitter...]
+            .fc-button-pair.fc-outline-target
+              ...
+
+*/
+#configure-container {
+  /* Share btn container */
+  & .configure-share-button-container {
+    font-size: 0;
+    padding: 0;
+    border: 0;
+    background: var(--theme-primary);
+    cursor: pointer;
+
+    & + .configure-dropdown-submenu {
+      padding: 0;
+      border: 0;
+      list-style: none;
+      position: static;
+      & > li {
+        position: absolute;
+        background: var(--theme-primary);
+        z-index: 1;
+        bottom: 36px;
+        box-shadow: var(--box-shadow);
+        padding: 15px 15px 5px;
+        min-width: 180px;
+      }
+    }
+  }
+
+  & .fc-share-dialog-list {
+    & .fc-share-dialog-item {
+      display: flex;
+      align-items: center;
+      padding: 0;
+      margin-bottom: 10px;
+      text-align: left;
+    }
+
+    & .fc-button-label {
+      text-decoration: none;
+    }
+
+    & .fc-share-email .fc-share-dialog-item::before {
+      content: '\e905';
+    }
+
+    & .fc-share-facebook .fc-share-dialog-item::before {
+      content: '\e904';
+    }
+
+    & .fc-share-twitter .fc-share-dialog-item::before {
+      content: '\e90b';
+    }
+
+    & .fc-share-pinterest .fc-share-dialog-item::before {
+      content: '\e907';
+    }
+
+    & .fc-share-email .fc-share-dialog-item::before,
+    & .fc-share-facebook .fc-share-dialog-item::before,
+    & .fc-share-twitter .fc-share-dialog-item::before,
+    & .fc-share-pinterest .fc-share-dialog-item::before {
+      margin-right: 7px;
+      font-size: 21px;
+    }
+  }
+}
+
+@media (--between-sm-md) {
+  #configure-container {
+    & .configure-share-button-container {
+      & + .configure-dropdown-submenu > li {
+        min-width: 345px;
+        left: -300px;
+      }
+    }
+  }
+}
+
+@media (--ms-ie) {
+  /* fallback css var on IE */
+
+  #configure-container {
+    & .configure-share-button-container {
+      background: #fff;
+    }
+
+    & .configure-share-button-container + .configure-dropdown-submenu > li {
+      background: #fff;
+      box-shadow: 0 2px 4px 0 rgba(16, 16, 16, 0.08);
+    }
+
+    & .configure-share-title {
+      border-bottom: 1px solid #ebebeb;
+    }
+  }
+}

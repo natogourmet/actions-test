@@ -1,0 +1,45 @@
+#configure-container {
+  & .fc-pager-page {
+    & .fc-adi-attribute-title-wrapper {
+      margin: 0;
+      margin-bottom: 15px;
+    }
+    & .color-swatches .fc-attribute-title {
+      display: none;
+    }
+    & .fc-adi-attribute-title {
+      font: var(--font-bold);
+      font-size: 15px;
+      color: var(--color-text);
+    }
+  }
+
+  & .fc-accordion-panel {
+    &.fc-is-open {
+      /** hides the selected value when expanded */
+      & .fc-attribute-header-custom-after-html-hook {
+        display: none;
+      }
+
+      & .fc-adi-attribute-title-wrapper {
+        margin: 0;
+        margin-bottom: 15px;
+      }
+      & .color-swatches .fc-attribute-title,
+      & .graphic-swatches .fc-attribute-title {
+        display: none;
+      }
+      & .fc-adi-attribute-title {
+        font: var(--font-bold);
+        font-size: 15px;
+        color: var(--color-text);
+      }
+      & .fc-adi-attribute-title span:first-child {
+        display: none;
+      }
+      & .fc-adi-selected-value {
+        margin-left: 2px;
+      }
+    }
+  }
+}

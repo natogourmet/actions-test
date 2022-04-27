@@ -1,0 +1,56 @@
+/* PAGER
+
+configure-attributes-wrapper
+  .configure-nav-sm
+    ...
+  .configure-nav-md
+    .fc-pager-body
+    ...
+  .configure-nav-lg
+    .fc-accordion
+    ...
+
+// MD
+.configure-nav-md
+  .fc-pager-body
+    span
+      .fc-pager-page
+        .fc-attribute-selector.fc-outline-target.fc-attribute-selector-alias-main_group
+          .fc-ca-fieldset
+            legend#fc-ca-XXXXXX-fieldset-description.fc-ca-legend
+            .fc-facet-selectors
+            .fc-subattributes-wrapper
+              .fc-attribute-selector.fc-outline-target.fc-attribute-selector-alias-collar
+                .fc-ca-fieldset
+                  legend.fc-ca-legend
+                  div
+                    fc-attribute-title.fc-subattribute-title-empty
+                  .fc-facet-selectors
+                  .fc-ca-fieldset
+                  .fc-swatch-group
+                    .fc-ca-XXXXX-fieldset-description
+                    .fc-attribute-value-swatch fc-swatch-selected
+                      .fc-button-pair
+                        .fc-default-button
+                        .fc-button.fc-fancy-button
+                          .fc-ripple-effect
+                          .fc-button-label
+                            span
+                            .fc-swatch-title
+
+*/
+
+#configure-container {
+  & .fc-pager-body {
+    min-height: 200px;
+    padding: 0 5px;
+  }
+}
+
+@media (--lower-than-md) {
+  #configure-container {
+    & .fc-pager-body {
+      min-height: initial;
+    }
+  }
+}

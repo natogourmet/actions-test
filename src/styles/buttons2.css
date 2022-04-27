@@ -1,0 +1,232 @@
+/*
+
+Predefined button styles based on UI - ConfigureID Components (https://www.figma.com/file/aX1DLBEgQGzXKrx42utbVZ/%5BINTERNAL%5D---ADI-Configure-ID---UI?node-id=18%3A8416)
+
+You can use it as mixins in you component. e.g.
+
+.fc-add-to-cart-button {
+  @mixin button-primary-arrow;
+  ...
+}
+
+.fc-ugc-button {
+  @mixin button-secondary-simple;
+  ...
+}
+*/
+
+/*
+Create a button with a 3d plain effect based on Primary button of UI - ConfigureID Components
+*/
+@define-mixin button-primary {
+  @mixin shadow-wrap;
+  @mixin label-large;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--theme-invert);
+  color: var(--theme-primary);
+  touch-action: manipulation;
+  user-select: none;
+  vertical-align: middle;
+  white-space: nowrap;
+  text-align: left;
+  padding: 0 20px;
+  margin-bottom: var(--button-shadow-size);
+
+  &::before {
+    @mixin shadow;
+  }
+
+  &:hover:not(.fc-disabled) {
+    color: var(--color-hover);
+  }
+
+  &:active:not(.fc-disabled),
+  &:focus:not(.fc-disabled) {
+    transform: translate(var(--button-shadow-size), var(--button-shadow-size));
+    &::before {
+      transform: translate3d(0, 0, -1px);
+    }
+  }
+
+  &.fc-disabled {
+    opacity: 1;
+    cursor: not-allowed;
+    pointer-events: none;
+    background-color: var(--color-disabled-background);
+    color: var(--color-disabled-text);
+    &::before {
+      box-shadow: 0 0 0 1px var(--color-disabled-border);
+    }
+
+    &:hover {
+      background-color: var(--color-disabled-background);
+    }
+
+    /** Disables ripple effect */
+    & .fc-ripple-effect.fc-show {
+      display: none;
+    }
+
+    /** Disables button raise (box shadow) animation */
+    &.fc-button-raise {
+      animation: none;
+    }
+  }
+}
+
+/*
+Create a button with a 3d plain effect based on Secondary button of UI - ConfigureID Components
+*/
+@define-mixin button-secondary {
+  @mixin button-primary;
+
+  background-color: var(--theme-primary);
+  color: var(--theme-invert);
+  border: 1px solid var(--theme-invert) !important;
+
+  &.fc-disabled {
+    color: var(--color-disabled-text);
+    background-color: var(--theme-primary);
+    border-color: var(--color-disabled-background) !important;
+    &::before {
+      box-shadow: 0 0 0 1px var(--color-disabled-border);
+    }
+  }
+}
+
+/*
+ Add to the primary 3d button an arrow
+*/
+@define-mixin button-primary-arrow {
+  @mixin button-primary;
+  @mixin icon-arrow-right {
+    padding-top: 4px;
+    filter: opacity(100%) invert(100%);
+  }
+
+  /* Change the svg arrow color on hover using filters */
+  &:hover:not(.fc-disabled) {
+    &::after {
+      filter: opacity(50%) invert(100%);
+    }
+  }
+
+  /* keep the arrow gray when disabled */
+  &.fc-disabled {
+    &::after {
+      filter: opacity(100%) invert(50%);
+    }
+  }
+}
+
+/*
+ Add to the secondary 3d button an arrow
+*/
+@define-mixin button-secondary-arrow {
+  @mixin button-secondary;
+  @mixin icon-arrow-right {
+    padding-top: 4px;
+    filter: opacity(100%) invert(0);
+  }
+
+  /* Change the svg arrow color on hover using filters */
+  &:hover:not(.fc-disabled) {
+    color: var(--adi-dark-gray);
+    &::after {
+      filter: opacity(50%) invert(0);
+    }
+  }
+
+  &.fc-disabled {
+    background-color: var(--white);
+    color: var(--adi-dark-gray);
+    &::after {
+      filter: opacity(100%) invert(50%);
+    }
+
+    &:hover {
+      background-color: var(--white);
+    }
+  }
+}
+
+/*
+Base for simple buttons
+*/
+@define-mixin button-simple {
+  padding: 2px 20px 0;
+  @mixin label-large;
+
+  text-align: center;
+  height: 50px;
+}
+
+/*
+Primary simple button based on Simple Button Primary of UI - ConfigureID Components
+*/
+@define-mixin button-primary-simple {
+  @mixin button-simple;
+
+  background-color: var(--theme-invert);
+  color: var(--theme-primary);
+  border: 1px solid var(--theme-primary);
+
+  &.fc-disabled {
+    cursor: not-allowed;
+    background-color: var(--color-disabled-background);
+    color: var(--color-disabled-text);
+  }
+}
+
+/*
+Secondary simple button based on Simple Button Secondary of UI - ConfigureID Components
+*/
+@define-mixin button-secondary-simple {
+  @mixin button-simple;
+
+  background-color: var(--theme-primary);
+  color: var(--theme-invert);
+  border: 1px solid var(--theme-invert);
+
+  &.fc-disabled {
+    cursor: not-allowed;
+    border-color: var(--adi-lightest-gray);
+    color: var(--adi-dark-gray);
+  }
+}
+
+/*
+Add to cart button using the button-primary-arrow predefined style.
+*/
+.fc-add-to-cart-button {
+  @mixin button-primary-arrow;
+
+  font-family: var(--font-adihaus-din-500);
+  font-weight: 500;
+  letter-spacing: 2px;
+
+  & .fc-button-label {
+    display: flex;
+    padding-top: 2px;
+    & .fc-price {
+      @mixin label-large;
+
+      font-family: var(--font-adihaus-din-500);
+      padding-left: 5px;
+
+      /* Adds '-' before the price */
+      &::before {
+        content: '- ';
+      }
+    }
+  }
+}
+
+.fc-ugc-button {
+  @mixin button-secondary-simple;
+
+  min-height: 36px;
+}

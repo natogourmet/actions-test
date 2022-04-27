@@ -1,0 +1,116 @@
+/*
+This typografies are based on Typo section of UI - ConfigureID Components
+https://www.figma.com/file/aX1DLBEgQGzXKrx42utbVZ/%5BINTERNAL%5D---ADI-Configure-ID---UI?node-id=1%3A1831
+
+Although in the Figma file the font size is specified in pixels, in the implementation will be specified in rem. 1rem (1rem=14px).
+font-size-main: 14px
+font-size-in-rem = font-in-pixels/font-size-main
+f.e. : 6.3rem = 88px/14px
+
+Always try to use this predefined typografies in the components. Most of the design in figma use those typos.
+However, when You don't find a typo than match with the design, feel free to add a new one if You think it can be used in different parts of the app.
+i.e. paragraph-small-500
+
+You can use it applying the mixin to the element. i.e.
+
+& .fc-grouper-description {
+  @mixin paragraph-small;
+  ...
+}
+
+*/
+
+/* 88 px */
+@define-mixin title-01 {
+  font-family: var(--font-gotham-regular);
+  font-size: 6.3rem;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+}
+
+/* 64 px */
+@define-mixin title-02 {
+  font-family: var(--font-gotham-regular);
+  font-size: 4.6rem;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+}
+
+/* 30 px */
+@define-mixin title-03 {
+  font-family: var(--font-gotham-regular);
+  font-size: 2.14rem;
+  letter-spacing: 1px;
+  line-height: 27px;
+  text-transform: uppercase;
+}
+
+/* 20 px */
+@define-mixin title-04 {
+  font-family: var(--font-gotham-regular);
+  font-size: 1.4rem;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+/* 16 px */
+@define-mixin title-05 {
+  font-family: var(--font-gotham-regular);
+  font-size: 1.14rem;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+/* 14 px */
+@define-mixin title-06 {
+  font-family: var(--font-gotham-regular);
+  font-size: 1rem;
+  letter-spacing: 0.5px;
+}
+
+/* 16 px */
+@define-mixin paragraph-medium {
+  font-family: var(--font-gotham-regular);
+  font-size: 1.14rem;
+}
+
+/* 14 px */
+@define-mixin paragraph-small {
+  font-family: var(--font-gotham-regular);
+  font-size: 1rem;
+  letter-spacing: 0;
+}
+
+/*
+This typo is not defined in UI - ConfigureID, However we need it in some components to match the Figma design.
+14 px
+*/
+@define-mixin paragraph-small-500 {
+  font-family: var(--font-gotham-regular);
+  font-size: 1rem;
+  letter-spacing: 0;
+}
+
+/* 14 px */
+@define-mixin label-large {
+  font-family: var(--font-gotham-regular);
+  font-size: 1rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+/* 12 px */
+@define-mixin label-medium {
+  font-family: var(--font-gotham-regular);
+  font-size: 0.85rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+/* 11 px */
+@define-mixin label-small {
+  font-family: var(--font-gotham-regular);
+  font-size: 0.78rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}

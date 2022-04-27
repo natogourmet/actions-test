@@ -1,0 +1,30 @@
+name: Manually build and deploy branch
+
+# Executed manually. Useful for branches that are not yet associated with a PR.
+# - Checkouts the branch
+# - Builds and tests the project
+# - Deploys the application to Github Pages (branches/[branch name])
+on: workflow_dispatch
+
+jobs:
+  build:
+    uses: martinmoscovich/gh-actions/.github/workflows/npm-build.yml@v3
+    with:
+      node_version: 14
+      dist_dir: dist
+
+  deploy:
+    name: Deploy
+    needs: build
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Extract branch or tag name
+        uses: tj-actions/branch-names@v5
+        id: extract_branch
+
+      - name: Deploy to GH Pages
+        uses: martinmoscovich/gh-actions/gh-deploy@v3
+        with:
+          to: branches/${{ steps.extract_branch.outputs.current_branch }}
+          github_token: ${{ secrets.GITHUB_TOKEN }}

@@ -1,0 +1,117 @@
+/*
+
+Add to Cart container
+
+.configure-add-to-cart-container
+  .configure-quantity-container
+    .fc-quantity-selector
+      .fc-quantity-title
+      .fc-dropdown-container
+        .fc-quantity-list.fc-dropdown.fc-outline-target
+  .configure-add-to-cart-button
+    .fc-button-pair.fc-outline-target
+      .fc-button.fc-fancy-button.fc-add-to-cart-button.fc-outline-target
+        .fc-ripple-effect.fc-show
+        span.fc-button-label
+
+*/
+
+#configure-container {
+  & .fc-quantity-list,
+  & .configure-add-to-cart-button .fc-button-pair div.fc-button {
+    height: 54px;
+  }
+
+  & .configure-add-to-cart-container {
+    font: var(--font-bold);
+    font-size: 18px;
+    display: flex;
+    flex-wrap: wrap;
+    border-top: 1px solid var(--border-color);
+    background-color: rgba(255, 255, 255, 0.95);
+    position: -webkit-sticky; /* FIXME: Maybe it should be removed because we use autoprefixer */
+    position: sticky;
+    bottom: 0;
+    z-index: 5;
+
+    & .configure-quantity-container {
+      width: 100px;
+      padding-right: 15px;
+
+      & .fc-quantity-title {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        margin: -1px;
+        border: 0;
+        padding: 0;
+        clip: rect(0 0 0 0);
+        overflow: hidden;
+      }
+
+      & .fc-quantity-list {
+        background-color: var(--theme-primary);
+      }
+    }
+
+    & .configure-add-to-cart-button {
+      width: calc(100% - 100px);
+    }
+  }
+}
+
+@media (--lower-than-sm) {
+  #configure-container {
+    & .configure-add-to-cart-container {
+      margin-top: 30px;
+      margin-left: -15px;
+      margin-right: -15px;
+      padding: 0 15px;
+    }
+  }
+}
+
+@media (--lower-than-md) {
+  #configure-container {
+    & .configure-add-to-cart-container {
+      padding-top: 15px;
+      padding-bottom: 15px;
+      position: -webkit-sticky; /* FIXME: Maybe it should be removed because we use autoprefixer */
+      position: sticky;
+      bottom: 0;
+      flex-wrap: nowrap;
+    }
+  }
+}
+
+@media (--between-sm-md) {
+  #configure-container {
+    & .configure-add-to-cart-container {
+      margin-left: -34px;
+      margin-right: -34px;
+      padding: 0 34px;
+    }
+  }
+}
+
+@media (--greater-than-md) {
+  #configure-container {
+    & .configure-add-to-cart-container {
+      padding: 15px 0;
+    }
+  }
+}
+
+@media (--ms-ie) {
+  /* fallback css var on IE */
+  #configure-container {
+    & .configure-add-to-cart-container {
+      border-top: 1px solid #ebebeb;
+      font: 500 18px 'Work Sans', sans-serif;
+    }
+
+    & .fc-quantity-list {
+      background-color: #fff;
+    }
+  }
+}

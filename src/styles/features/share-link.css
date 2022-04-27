@@ -1,0 +1,50 @@
+#configure-container {
+  & .configure-share-container {
+    & .fc-adi-configure-share-item {
+      display: flex;
+      flex-direction: row;
+      cursor: pointer;
+      margin-bottom: 6px;
+
+      & .fc-adi-icon {
+        width: 20px;
+        margin-right: 10px;
+      }
+    }
+  }
+}
+
+.fc-adi-share-link-dialog {
+  & .fc-dialog-body div {
+    overflow: hidden;
+  }
+
+  & .fc-adi-share-link {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+  }
+
+  & .fc-adi-share-link-text {
+    display: flex;
+    flex: 1;
+    overflow-x: auto;
+    overflow-y: hidden;
+    white-space: nowrap;
+    margin-right: 12px;
+    background-color: #f5f5f5;
+    padding: 6px;
+    align-items: center;
+    border: solid 1px;
+    height: 45px;
+  }
+
+  & .fc-adi-copy-link-button {
+    @mixin button-secondary-simple;
+
+    height: 45px;
+    cursor: pointer;
+  }
+}

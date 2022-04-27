@@ -1,0 +1,53 @@
+/** CSS for Product Personalization */
+
+#configure-container {
+  /**
+   * CSS for Adidas custom toggles
+   * Only applies to fc-checkboxes inside toggle CAs divs (class$ means "class that ends with")
+   */
+  & div[class$='_toggle'] {
+    & .fc-checkbox {
+      @mixin paragraph-small;
+      & label {
+        & .fc-label-text {
+          margin-left: 28px;
+        }
+
+        /* Plus icon when unselected */
+        @mixin icon-plus {
+          border: none;
+          top: 0;
+        }
+
+        text-decoration: underline;
+        text-underline-offset: 2px;
+      }
+
+      /* cross icon when selected */
+      &.fc-checkbox-selected label {
+        @mixin icon-close {
+          top: 1px;
+        }
+
+        &::before {
+          display: none;
+        }
+      }
+
+      @media (--lower-than-md) {
+        /* padding according to Figma design */
+        padding: 0 0 50px 0;
+      }
+    }
+  }
+
+  /**
+   * LOCATION CONFLICTS
+   * Disables the location swatch if it's not the one selected
+   */
+  & .fc-swatch-ca.fc-adi-location-disabled .fc-attribute-value-swatch:not(.fc-swatch-selected) {
+    pointer-events: none;
+    filter: grayscale(1);
+    opacity: 0.8;
+  }
+}

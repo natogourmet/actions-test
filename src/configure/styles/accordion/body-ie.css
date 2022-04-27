@@ -1,0 +1,58 @@
+@media (--ms-ie) {
+  /* fallback css var on IE */
+  #configure-container {
+    & .fc-facet-title,
+    & .fc-attribute-title {
+      font: 500 13px 'Work Sans', sans-serif;
+      color: #101010;
+    }
+
+    & .fc-attribute-selector-alias-add_monogram .fc-attribute-title {
+      color: #757575;
+    }
+
+    & .fc-accordion {
+      border-bottom: 1px solid #ebebeb;
+    }
+
+    & .fc-accordion-panel-header {
+      padding: 20px 0;
+      background: #fff;
+      border: 0;
+      border-top: 1px solid #ebebeb;
+    }
+
+    & .fc-accordion-panel.fc-is-closed .fc-accordion-panel-header {
+      border: 0;
+      border-top: 1px solid #ebebeb;
+    }
+
+    & .fc-accordion-panel.fc-is-open .fc-accordion-panel-header,
+    & .fc-accordion-panel.fc-is-closed .fc-accordion-panel-header:hover,
+    & .fc-accordion .fc-accordion-panel.fc-is-closed .fc-accordion-panel-header:focus {
+      background: #fff;
+    }
+
+    & .fc-accordion-panel-header .fc-swatch {
+      border: 1px solid #ebebeb;
+    }
+
+    & .fc-attribute-header::before {
+      color: #101010;
+    }
+
+    & .fc-attribute-header-name {
+      color: #101010;
+    }
+
+    & .fc-attribute-header-swatch-name {
+      font-size: 13px;
+      color: #757575;
+    }
+
+    & .fc-facet-selector-dropdown .fc-facet-title {
+      color: #757575;
+      font-size: 13px;
+    }
+  }
+}

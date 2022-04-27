@@ -1,0 +1,46 @@
+#configure-container {
+  & .fc-quantity-input-with-buttons {
+    width: 106px;
+    border: 1px solid var(--border-color);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    & .fc-quantity-button-decrease::before {
+      font-size: 18px;
+      content: '\e911';
+    }
+
+    & .fc-quantity-button-increase::before {
+      content: '\e90d';
+    }
+
+    & .fc-outline-target {
+      color: var(--color-text);
+      border: none;
+      background: transparent;
+      padding: 0;
+    }
+  }
+
+  & .fc-input-invalid .fc-quantity-input-with-buttons {
+    border-color: var(--border-color-error);
+  }
+}
+
+/* fallback css var on IE */
+@media (--ms-ie) {
+  #configure-container {
+    & .fc-quantity-input-with-buttons {
+      border-bottom: 1px solid #ebebeb;
+    }
+
+    & .fc-input-invalid .fc-quantity-input-with-buttons {
+      border-color: #c03;
+    }
+
+    & .fc-quantity-input-with-buttons .fc-outline-target {
+      color: #101010;
+    }
+  }
+}

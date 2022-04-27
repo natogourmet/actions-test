@@ -1,0 +1,191 @@
+/*
+.fc-pager-header
+  .fc-pager-pulldown
+    .fc-button-pair.fc-outline-target
+      .fc-button.fc-fancy-button.fc-pager-pulldown-button.fc-outline-target
+        .fc-ripple-effect
+        .fc-button-label
+          .fc-icon-down-arrow
+  .fc-pager-current-name
+    .fc-pager-page-group-name
+    .fc-pager-page-name
+    .fc-pager-page-number
+  .fc-pager-buttons
+    .fc-pager-prev-wrapper
+      .fc-button-pair.fc-outline-target
+        .fc-button fc-fancy-button fc-pager-prev fc-disabled fc-disabled
+    .fc-pager-next-wrapper
+      .fc-button-pair fc-outline-target
+        ...
+
+*/
+
+@define-mixin header-swatch {
+  width: var(--swatch-header-size);
+  height: var(--swatch-header-size);
+  border: 1px solid var(--border-color);
+  margin: 0;
+  margin-left: 10px;
+}
+
+#configure-container {
+  & .fc-pager-header {
+    display: flex;
+    align-items: center;
+    box-shadow: none;
+    margin-bottom: 30px;
+    border-top: 1px solid var(--border-color);
+    border-bottom: 1px solid var(--border-color);
+    height: auto;
+    padding: 5px 0;
+    position: relative;
+    overflow: hidden;
+
+    & .fc-swatch {
+      @mixin header-swatch;
+    }
+
+    & > .fc-button-pair {
+      display: none;
+    }
+
+    & .fc-pager-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      top: 0;
+      bottom: 0;
+      right: 0;
+      width: 130px;
+
+      & .fc-pager-prev-wrapper,
+      & .fc-pager-next-wrapper {
+        width: 50%;
+        border-left: 1px solid var(--border-color);
+      }
+
+      & .fc-button,
+      & .button-label {
+        height: 100%;
+        width: 100%;
+      }
+
+      & .fc-button-pair {
+        height: 100%;
+
+        & .fc-button {
+          position: relative;
+          font-size: 20px;
+        }
+      }
+
+      & .fc-icon-next,
+      & .fc-icon-prev {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-size: 20px;
+      }
+
+      & .fc-icon-next::before {
+        margin-left: 3px;
+      }
+    }
+
+    & .fc-pager-pulldown {
+      position: relative;
+      z-index: 4;
+
+      & .fc-icon-down-arrow {
+        display: block;
+        height: 52px;
+        width: 52px;
+
+        &::after {
+          display: none;
+        }
+
+        &::before {
+          content: '\e90c';
+          display: none;
+          font-size: 21px;
+        }
+      }
+
+      & .fc-pager-pulldown-button {
+        width: 54px;
+        height: auto;
+        padding: 0;
+      }
+    }
+
+    & .fc-pager-current-name {
+      display: flex;
+      align-items: flex-start;
+      width: 100%;
+      padding: 0 140px 0 0;
+      flex-direction: column;
+      height: auto;
+      flex-wrap: wrap;
+
+      & .fc-pager-page-group-name {
+        display: none;
+      }
+
+      & .fc-aria-hidden.fc-swatch {
+        display: block;
+      }
+
+      & > span:first-child {
+        order: 3;
+        flex: 1;
+      }
+
+      & .fc-pager-page-name {
+        order: 2;
+        font-size: 15px;
+        text-transform: uppercase;
+        color: var(--color-text);
+        margin-right: 5px;
+        white-space: initial;
+      }
+
+      & .fc-pager-page-number {
+        order: 1;
+        padding: 0;
+        font-size: 12px;
+        color: var(--color-text-secondary);
+        position: absolute;
+        left: 0;
+        top: 0;
+        height: 100%;
+        width: 54px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+
+        &::before {
+          content: '';
+          display: block;
+          width: 26px;
+          height: 26px;
+          margin-bottom: 4px;
+          background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='125' height='125' viewBox='0 0 1250 1250'%3E%3Cmetadata%3E%3C%3Fxpacket begin='' id='W5M0MpCehiHzreSzNTczkc9d'%3F%3E%3Cx:xmpmeta xmlns:x='adobe:ns:meta/' x:xmptk='Adobe XMP Core 5.6-c142 79.160924, 2017/07/13-01:06:39 '%3E%3Crdf:RDF xmlns:rdf='http://www.w3.org/1999/02/22-rdf-syntax-ns%23'%3E%3Crdf:Description rdf:about=''/%3E%3C/rdf:RDF%3E%3C/x:xmpmeta%3E%3C%3Fxpacket end='w'%3F%3E%3C/metadata%3E%3Crect width='521' height='521'/%3E%3Crect x='728' width='522' height='521'/%3E%3Crect y='728' width='521' height='522'/%3E%3Crect x='728' y='728' width='522' height='522'/%3E%3C/svg%3E%0A");
+          background-size: contain;
+        }
+      }
+
+      & .fc-accessible-swatch {
+        color: var(--color-text-secondary);
+        display: flex;
+        align-items: center;
+        justify-content: left;
+        white-space: initial;
+        & > img {
+          @mixin header-swatch;
+        }
+      }
+    }
+  }
+}

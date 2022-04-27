@@ -1,0 +1,30 @@
+@media (--ms-ie) {
+  #configure-container {
+    /* fallback css var on IE */
+    & .fc-pager-header {
+      border-top: 1px solid #ebebeb;
+      border-bottom: 1px solid #ebebeb;
+    }
+
+    & .fc-pager-buttons .fc-pager-prev-wrapper,
+    & .fc-pager-buttons .fc-pager-next-wrapper {
+      border-left: 1px solid #ebebeb;
+    }
+
+    & .fc-pager-header .fc-swatch {
+      width: 25px;
+      height: 25px;
+      border: 1px solid #ebebeb;
+    }
+
+    & .fc-pager-current-name .fc-pager-page-name,
+    & .fc-pager-pulldown .fc-icon-down-arrow {
+      color: #101010;
+    }
+
+    & .fc-pager-current-name .fc-pager-page-number,
+    & .fc-accessible-swatch {
+      color: #757575;
+    }
+  }
+}

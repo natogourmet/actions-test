@@ -1,0 +1,14 @@
+{
+  "custom-media": {
+    "--lower-than-sm": "screen and (max-width: 319px)",
+    "--lower-than-md": "screen and (max-width: 1023px)",
+    "--between-sm-md": "screen and (min-width: 320px) and (max-width: 1023px)",
+    "--greater-than-md": "screen and (min-width: 1024px)",
+    "--ms-ie": "--ms-ie screen and (-ms-high-contrast: active), (-ms-high-contrast: none)"
+  },
+
+  "breakpoints": {
+    "sm": 319,
+    "md": 1023
+  }
+}

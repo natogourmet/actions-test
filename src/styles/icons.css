@@ -1,0 +1,193 @@
+/**************************
+ *        MIXINS
+ **************************/
+
+/** Close Icon Mixin */
+@define-mixin icon-close $position: after {
+  &::$(position) {
+    content: url(@/assets/icons/cross.svg);
+    @mixin-content;
+  }
+}
+
+/** Arrow Right Icon Mixin */
+@define-mixin icon-arrow-right $position: after {
+  &::$(position) {
+    content: url(@/assets/icons/right-arrow.svg);
+    @mixin-content;
+  }
+}
+
+/** Arrow Right Icon Mixin */
+@define-mixin icon-arrow-thin-right $position: after {
+  &::$(position) {
+    content: url(@/assets/icons/right-thin-arrow.svg);
+    @mixin-content;
+  }
+}
+
+@define-mixin icon-menu $position: after {
+  &::$(position) {
+    content: url(@/assets/icons/menu.svg);
+    @mixin-content;
+  }
+}
+
+/** Plus Icon Mixin */
+@define-mixin icon-plus $position: after {
+  &::$(position) {
+    content: url(@/assets/icons/plus.svg);
+    @mixin-content;
+  }
+}
+
+/** Chevron Icon Mixin */
+@define-mixin icon-chevron $position: after, $rotate: 0 {
+  &::$(position) {
+    content: url(@/assets/icons/chevron-up.svg);
+    transform: rotate($rotate);
+    @mixin-content;
+  }
+}
+
+/** Chevron up Icon Mixin (not rotated) */
+@define-mixin icon-chevron-up $position: after {
+  @mixin icon-chevron $position, 0 {
+    @mixin-content;
+  }
+}
+
+/** Chevron down Icon Mixin (rotated 180deg) */
+@define-mixin icon-chevron-down $position: after {
+  @mixin icon-chevron $position, 180deg {
+    @mixin-content;
+  }
+}
+
+/** Chevron right Icon Mixin (rotated 90deg) */
+@define-mixin icon-chevron-right $position: after {
+  @mixin icon-chevron $position, 90deg {
+    @mixin-content;
+  }
+}
+
+@define-mixin icon-setting $position: after {
+  &::$(position) {
+    content: url(@/assets/icons/setting.svg);
+    @mixin-content;
+  }
+}
+
+@define-mixin icon-snapshot $position: after {
+  &::$(position) {
+    content: url(@/assets/icons/snapshot.svg);
+    @mixin-content;
+  }
+}
+
+@define-mixin icon-start-over $position: after {
+  &::$(position) {
+    content: url(@/assets/icons/start-over.svg);
+    @mixin-content;
+  }
+}
+
+@define-mixin icon-randomize $position: after {
+  &::$(position) {
+    content: url(@/assets/icons/randomize.svg);
+    @mixin-content;
+  }
+}
+
+@define-mixin icon-share $position: after {
+  &::$(position) {
+    content: url(@/assets/icons/share.svg);
+    @mixin-content;
+  }
+}
+
+@define-mixin icon-print $position: after {
+  &::$(position) {
+    content: url(@/assets/icons/print.svg);
+    @mixin-content;
+  }
+}
+
+@define-mixin icon-rotate $position: after {
+  &::$(position) {
+    content: url(@/assets/icons/rotate.svg);
+    @mixin-content;
+  }
+}
+
+@define-mixin icon-grouper-style $position: after {
+  &::$(position) {
+    content: url(@/assets/icons/style.svg);
+    @mixin-content;
+  }
+}
+
+@define-mixin icon-grouper-personalize $position: after {
+  &::$(position) {
+    content: url(@/assets/icons/personalize.svg);
+    @mixin-content;
+  }
+}
+
+@define-mixin icon-grouper-minus $position: after {
+  &::$(position) {
+    content: url(@/assets/icons/minus.svg);
+    @mixin-content;
+  }
+}
+
+@define-mixin icon-grouper-plus $position: after {
+  &::$(position) {
+    content: url(@/assets/icons/plus.svg);
+    @mixin-content;
+  }
+}
+
+@define-mixin icon-fullscreen $position: after {
+  &::$(position) {
+    content: url(@/assets/icons/fullscreen.svg);
+    @mixin-content;
+  }
+}
+
+@define-mixin icon-link $position: after {
+  &::$(position) {
+    content: url(@/assets/icons/link.svg);
+    @mixin-content;
+  }
+}
+
+/**************************
+ *        CLASSES
+ **************************/
+
+/** Close Icon */
+.fc-adi-icon-close {
+  @mixin icon-close;
+}
+
+/** chain link icon (share) */
+.fc-adi-icon-link {
+  @mixin icon-link;
+}
+
+/**
+ * DEPRECATED
+ *
+ * Mixin to add Icons as content to elements
+ * $name: filename (without extension) inside assets/icons directory
+ * $position: pseudo-selector to use (default: ::after)
+ * $ext: file extension (default: svg)
+
+@define-mixin icon $name, $position: after, $ext: svg {
+  &::$(position) {
+    content: url(@/assets/icons/$name.$ext);
+    @mixin-content;
+  }
+}
+*/

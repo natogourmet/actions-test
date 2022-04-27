@@ -1,0 +1,24 @@
+@define-mixin shadow-wrap {
+  position: relative;
+  transform-style: preserve-3d;
+  overflow: visible;
+  transform: translate3d(0, 0, 1px);
+  transition: all 75ms cubic-bezier(0, 0, 0.58, 1);
+
+  /* width: calc(100% - 3px); */
+}
+
+@define-mixin shadow {
+  position: absolute;
+  content: '';
+  height: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: var(--theme-primary);
+  border-radius: inherit;
+  box-shadow: 0 0 0 1px var(--theme-invert);
+  transform: translate3d(var(--button-shadow-size), var(--button-shadow-size), -1px);
+  transition: all 75ms cubic-bezier(0, 0, 0.58, 1);
+}

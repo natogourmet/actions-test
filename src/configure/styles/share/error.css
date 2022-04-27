@@ -1,0 +1,45 @@
+/* DIALOG error handling */
+.recipe-unavailable {
+  padding: 0;
+  list-style: none;
+
+  & li::before {
+    content: '\2022 ';
+    padding-right: 0.2em;
+  }
+
+  &:first-child {
+    margin-top: 0;
+  }
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.fc-error-dialog .fc-dialog-header {
+  margin-bottom: 20px;
+}
+
+.fc-error-dialog .fc-button-black {
+  min-width: 170px;
+  height: 54px;
+}
+
+.fc-dialog-error-footer {
+  margin-top: 30px;
+}
+
+@media (--between-sm-md) {
+  .fc-error-dialog .fc-button-black {
+    min-width: 220px;
+  }
+}
+
+@media (--lower-than-sm) {
+  .fc-error-dialog .fc-button-black {
+    min-width: 100%;
+  }
+}
+
+/* DIALOG error handling end */

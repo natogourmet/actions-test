@@ -1,0 +1,130 @@
+/*
+.fc-dialog-wrapper-container fc-dialog-wrapper-0
+  .fc-dialog-wrapper
+    .fc-dialog-backdrop
+    .fc-dialog-container
+      .fc-dialog.fc-dialog-type-pager-attribute-list
+        .fc-dialog-header.fc-dialog-no-title
+          .fc-dialog-close
+            .fc-button-pair.fc-outline-target
+              button.fc-default-button
+        fc-dialog-body
+          ...
+*/
+
+.fc-dialog-type-pager-attribute-list {
+  width: 100% !important;
+  transform: none !important;
+  padding: 20px 25px !important;
+  min-height: 100%;
+
+  & .fc-dialog-body {
+    width: 100% !important;
+    overflow: visible !important;
+  }
+
+  & .fc-pager-attribute-list,
+  & .fc-pager-pulldown-list {
+    width: 100% !important;
+    box-shadow: none;
+  }
+
+  & .fc-pager-pulldown-list {
+    overflow: visible;
+    & > li {
+      padding-top: 0;
+      border-top: 1px solid var(--border-color);
+
+      & .fc-button-pair {
+        padding-top: 17px;
+        padding-bottom: 17px;
+      }
+    }
+
+    & .fc-pager-pulldown-item {
+      overflow: visible;
+      padding: 0;
+    }
+  }
+
+  & .fc-attribute-list-header {
+    position: relative;
+
+    & .fc-attribute-header-name {
+      @mixin label-large;
+
+      letter-spacing: 2px;
+      padding-top: 0;
+
+      @mixin icon-chevron-right after {
+        position: absolute;
+        right: 0;
+        margin-top: -5px;
+      }
+    }
+
+    & > span:first-child {
+      margin-right: 0;
+    }
+
+    & .fc-pager-grouper {
+      display: flex;
+      border-bottom: solid 1px var(--adi-lightest-gray);
+      border-top: solid 1px var(--adi-lightest-gray);
+      cursor: default;
+
+      /** Emulates larger bottom line on groupers */
+      padding: 20px 25px;
+
+      /*
+      Top: -25px hide the line of previous item.
+      Leftt/Right: -30px: Expand outside the padding
+      Bottom: 25px: Space under the grouper
+      */
+      margin: -25px -30px 25px;
+
+      & .fc-pager-grouper-icon {
+        padding-right: 15px;
+        & .fc-pager-grouper-style-icon {
+          @mixin icon-grouper-style;
+        }
+
+        & .fc-pager-grouper-personalize-icon {
+          @mixin icon-grouper-personalize;
+        }
+      }
+
+      & .fc-pager-grouper-name {
+        font-family: var(--font-adipro-700);
+        font-size: 1.42rem;
+        letter-spacing: 0.5px;
+        padding-top: 2px;
+        text-transform: uppercase;
+      }
+    }
+
+    & .fc-attribute-header-swatch-name {
+      display: none;
+    }
+
+    & .fc-attribute-header-custom-after-html-hook {
+      color: var(--color-text-secondary);
+      font: var(--font-main);
+      line-height: 20px;
+      margin-top: 4px;
+    }
+  }
+
+  & .fc-swatch {
+    display: none;
+  }
+
+  & .fc-dialog-header {
+    & .fc-dialog-close {
+      top: 7px;
+      & .fc-icon-close {
+        @mixin icon-close before;
+      }
+    }
+  }
+}

@@ -1,0 +1,76 @@
+{
+  "name": "cid-impl",
+  "description": "ConfigureImpl",
+  "displayName": "ConfigureID Impl Implementation Library",
+  "version": "0.0.0",
+  "files": [
+    "dist"
+  ],
+  "main": "./dist/cid-impl.umd.js",
+  "module": "./dist/cid-impl.es.js",
+  "exports": {
+    ".": {
+      "import": "./dist/cid-impl.es.js",
+      "require": "./dist/cid-impl.umd.js"
+    }
+  },
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "serve": "vite preview",
+    "validate:ts": "eslint . --ext .ts --ext .js --cache --ignore-path ./.gitignore",
+    "lint:ts": "npm run validate:ts -- --fix",
+    "validate:style": "stylelint ./**/*.css",
+    "lint:style": "npm run validate:style -- --fix",
+    "validate": "npm run validate:ts &&  npm run validate:style",
+    "lint": "npm run lint:ts &&  npm run lint:style",
+    "format": "prettier --config .prettierrc.json --ignore-unknown --write .",
+    "prepare": "husky install",
+    "test": "vitest",
+    "bump": "sh bump.sh"
+  },
+  "devDependencies": {
+    "@amatlash/vite-plugin-stylelint": "^1.1.1",
+    "@types/node": "^16.11.12",
+    "@typescript-eslint/eslint-plugin": "^4.31.2",
+    "@typescript-eslint/parser": "^4.31.2",
+    "autoprefixer": "^10.3.7",
+    "eslint": "^7.32.0",
+    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-import": "^2.24.2",
+    "eslint-plugin-prettier": "^4.0.0",
+    "husky": "^7.0.2",
+    "lint-staged": "^11.1.2",
+    "postcss": "^8.3.7",
+    "postcss-custom-media": "^8.0.0",
+    "postcss-import": "^14.0.2",
+    "postcss-mixins": "^8.1.0",
+    "postcss-nested": "^5.0.6",
+    "postcss-nesting": "^8.0.1",
+    "postcss-preset-env": "^6.7.0",
+    "postcss-simple-vars": "^6.0.3",
+    "prettier": "^2.4.1",
+    "pretty-format": "^27.4.2",
+    "stylelint": "^13.13.1",
+    "stylelint-config-prettier": "^8.0.2",
+    "stylelint-config-recommended": "^5.0.0",
+    "stylelint-config-standard": "^22.0.0",
+    "stylelint-prettier": "^1.2.0",
+    "tsc-files": "1.1.2",
+    "tsup": "^5.11.6",
+    "typescript": "^4.3.2",
+    "vite": "^2.7",
+    "vite-plugin-eslint": "^1.3.0",
+    "vitest": "0.0.115"
+  },
+  "lint-staged": {
+    "*.{js,ts}": "eslint --fix",
+    "*.{ts,tsx}": "tsc-files --noEmit",
+    "*.css": "stylelint --fix",
+    "*.{md,json,html}": "prettier --config .prettierrc.json --write"
+  },
+  "dependencies": {
+    "internetips": "0.4.5"
+  }
+}

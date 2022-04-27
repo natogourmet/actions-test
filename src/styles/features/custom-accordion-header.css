@@ -1,0 +1,20 @@
+/** CSS for the custom attribute headers */
+
+#configure-container {
+  & .fc-accordion {
+    & .fc-attribute-header {
+      /* Custom accordion hook, to show selected value/s */
+      & .fc-attribute-header-custom-after-html-hook {
+        color: var(--color-text-secondary);
+        font: var(--font-main);
+        line-height: 20px;
+        margin-top: 4px;
+      }
+
+      /* Hide the selected swatch value as it is shown in our custom hook (.fc-attribute-header-custom-after-html-hook)  */
+      & .fc-attribute-header-swatch-name {
+        display: none;
+      }
+    }
+  }
+}

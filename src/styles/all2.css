@@ -1,0 +1,72 @@
+/* @import '../configure/styles/original_styles.css'; */
+
+/* @import '../configure/styles/global.css'; */
+@import './global.css';
+@import '@/configure/styles/commons/mixins.css';
+@import './mixins/shadow.css';
+@import './mixins/typo.css';
+@import '@/configure/styles/normalize.css';
+@import '@/styles/base.css';
+
+@import './icons.css';
+
+/* @import '../configure/styles/layout.css'; */
+@import './layout.css';
+
+@import '@/configure/styles/buttons.css';
+@import './buttons.css';
+
+@import '@/configure/styles/form.css';
+@import '@/styles/product-display.css';
+@import '@/configure/styles/attributes-wrapper.css';
+
+/* @import '@/configure/styles/dropdown.css'; */
+
+@import './dropdown.css';
+@import '@/configure/styles/share/all.css';
+@import '@/configure/styles/snapshot.css';
+
+@import './snapshot.css';
+
+/* @import '@/configure/styles/pager/all.css'; */
+
+@import './pager/all.css';
+
+/* @import '../configure/styles/accordion/body.css'; */
+
+/* @import '../configure/styles/accordion/header.css'; */
+
+/* @import '../configure/styles/accordion/swatch.css'; */
+@import './accordion/body.css';
+@import './accordion/header.css';
+@import './accordion/swatch.css';
+@import '@/configure/styles/quantity/all.css';
+@import './cart/all.css';
+@import '@/configure/styles/attribute-selector.css';
+@import '@/configure/styles/button-selector.css';
+@import '@/configure/styles/tooltip.css';
+
+/* @import '@/configure/styles/rotate-zoom.css'; */
+@import './rotate-zoom.css';
+@import '@/configure/styles/containers.css';
+
+/* @import '@/configure/styles/fullscreen.css'; */
+@import './fullscreen.css';
+@import '@/configure/styles/loading.css';
+
+@import '@/configure/styles/webgl.css';
+@import '@/configure/styles/ar.css';
+@import '@/configure/styles/carousel.css';
+
+/* @import './fonts.css'; */
+
+/* @import '../configure/styles/original_styles_rest.css'; */
+
+@import './checkbox.css';
+
+/* Custom Features */
+@import './features/all.css';
+
+/* @import './accessibility.css'; */
+
+@import './loader.css';

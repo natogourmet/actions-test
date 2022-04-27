@@ -1,0 +1,28 @@
+name: PR closed
+
+# Runs when a PR is closed (merged or not)
+# This is a cleanup task
+# Steps:
+# - Disables the associated environment
+# - Removes the associated files from Github Pages
+on:
+  pull_request:
+    types: [closed]
+    branches:
+      - develop
+
+jobs:
+  prune:
+    name: Prune
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Extract branch or tag name
+        uses: tj-actions/branch-names@v5
+        id: extract_branch
+
+      - name: Prunes enviroment and files
+        uses: martinmoscovich/gh-actions/gh-prune@v3
+        with:
+          to: branches/${{ steps.extract_branch.outputs.current_branch }}
+          github_token: ${{ secrets.GITHUB_TOKEN }}

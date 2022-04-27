@@ -1,0 +1,67 @@
+/*
+
+Accordion or Pager container.
+
+.configure-attributes-wrapper
+
+*/
+
+@media (--greater-than-md) {
+  #configure-container {
+    & .configure-attributes-wrapper {
+      overflow-y: visible;
+      overflow-x: visible;
+      margin-bottom: 1px;
+    }
+  }
+}
+
+#configure-container {
+  & .configure-attributes-wrapper {
+    /* scrollbar styles for EI11 */
+    scrollbar-base-color: var(--theme-invert);
+    scrollbar-face-color: var(--theme-invert);
+    scrollbar-arrow-color: #ebebeb;
+    scrollbar-highlight-color: #ebebeb;
+    scrollbar-shadow-color: #ebebeb;
+    scrollbar-darkshadow-color: #ebebeb;
+    scrollbar-track-color: #ebebeb;
+
+    /* scrollbar styles for Fire Fox */
+    scrollbar-color: var(--theme-invert) #ebebeb !important;
+    scrollbar-width: thin !important;
+  }
+
+  /* FIXME: Maybe it should be removed because we use autoprefixer */
+  & .configure-attributes-wrapper::-webkit-scrollbar {
+    width: 3px;
+    height: 3px;
+    position: absolute;
+    right: 9px;
+  }
+
+  /* FIXME: Maybe it should be removed because we use autoprefixer */
+  & .configure-attributes-wrapper::-webkit-scrollbar-thumb {
+    background: var(--theme-invert);
+    margin: 10px;
+  }
+
+  /* FIXME: Maybe it should be removed because we use autoprefixer */
+  & .configure-attributes-wrapper::-webkit-scrollbar-track {
+    background: #ebebeb;
+  }
+}
+
+@media (--ms-ie) {
+  #configure-container {
+    /* fallback css var on IE */
+    & .configure-attributes-wrapper {
+      scrollbar-base-color: #101010;
+      scrollbar-face-color: #101010;
+    }
+
+    & .configure-attributes-wrapper::-webkit-scrollbar-thumb {
+      background: #101010;
+    }
+  }
+}

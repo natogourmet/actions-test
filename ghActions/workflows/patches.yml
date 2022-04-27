@@ -1,0 +1,51 @@
+name: Create Patch release
+
+# Run for patches (tags with semver and patch > 0)
+# - Checkouts the pushed tag
+# - Builds and tests the project
+# - Creates a new release with the compressed artifact
+# - Deploys the application to Github Pages (releases/[release name])
+on:
+  push:
+    tags:
+      - 'v*.*.*'
+      - '!v*.*.0'
+
+jobs:
+  build:
+    uses: martinmoscovich/gh-actions/.github/workflows/npm-build.yml@v3
+    with:
+      node_version: 14
+      dist_dir: dist
+
+  release:
+    name: Release
+    needs: build
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Extract tag name (release version)
+        uses: tj-actions/branch-names@v5
+        id: extract_branch
+
+      - name: Create release
+        uses: martinmoscovich/gh-actions/release@v3
+        with:
+          release_filename: ${{ github.event.repository.name }}-${{ steps.extract_branch.outputs.current_branch }}
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+
+  deploy:
+    name: Deploy
+    needs: build
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Extract branch or tag name
+        uses: tj-actions/branch-names@v5
+        id: extract_branch
+
+      - name: Deploy to GH Pages
+        uses: martinmoscovich/gh-actions/gh-deploy@v3
+        with:
+          to: releases/${{ steps.extract_branch.outputs.current_branch }}
+          github_token: ${{ secrets.GITHUB_TOKEN }}

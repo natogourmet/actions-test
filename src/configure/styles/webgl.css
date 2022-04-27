@@ -1,0 +1,91 @@
+.webgl-loader-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: var(--spinner-background);
+  display: none;
+
+  &.loaded {
+    display: none;
+  }
+}
+
+body.is-webgl {
+  & .webgl-loader-wrapper {
+    display: block;
+
+    &.loaded {
+      display: none;
+    }
+  }
+
+  & .configure-rotate-n-zoom-container {
+    display: flex;
+  }
+
+  & .configure-full-screen-btn {
+    display: block;
+  }
+
+  & .configure-ar-btn {
+    display: block;
+  }
+
+  & .webgl-loader-content {
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -20px;
+    margin-left: -20px;
+
+    &::after {
+      position: absolute;
+      display: block;
+      height: 30px;
+      width: 30px;
+      left: 50%;
+      top: 50%;
+      content: attr(data-pct) '%';
+      margin-top: -15px;
+      margin-left: -15px;
+      font-size: 0.6em;
+      line-height: 30px;
+      color: var(--color-text);
+      text-align: center;
+    }
+  }
+
+  & .webgl-loader-filler {
+    stroke: var(--spinner-circle-color);
+    stroke-width: 5px;
+  }
+
+  & .webgl-loader-bar {
+    stroke-dashoffset: 109.955;
+    transition: stroke-dashoffset 1s ease;
+    stroke: var(--spinner-loaded-circle-color);
+    stroke-width: 5px;
+  }
+}
+
+@media (--ms-ie) {
+  /* fallback css var on IE */
+  .webgl-loader-wrapper {
+    background-color: rgba(16, 16, 16, 0.7);
+  }
+
+  .webgl-loader-content::after {
+    color: #fff;
+  }
+
+  .webgl-loader-filler {
+    stroke: rgba(255, 255, 255, 0.3);
+  }
+  .webgl-loader-bar {
+    stroke: #fff;
+  }
+}

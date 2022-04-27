@@ -1,0 +1,40 @@
+/*
+
+Golbal HTML settings.
+
+*/
+html {
+  box-sizing: border-box;
+  font-size: var(--font-size-main);
+}
+
+/* these lines fixed ios problems when the focus is on textfields, selects or
+  some components that opens the keyboard or the roller
+  https://bugs.webkit.org/show_bug.cgi?id=138201
+*/
+
+/* html, body {
+  -webkit-overflow-scrolling: touch;
+  overflow: auto;
+} */
+
+body {
+  margin: 0;
+  padding: 0;
+  font: var(--font-main);
+  line-height: 1.3;
+  background-color: var(--theme-primary);
+}
+
+/* fallback css var on IE */
+@media (--ms-ie) {
+  body {
+    font-family: 'Work Sans', sans-serif;
+    font-size: 13px;
+    background-color: #fff;
+  }
+}
+
+img {
+  max-width: 100%;
+}

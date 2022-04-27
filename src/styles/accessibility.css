@@ -1,0 +1,16 @@
+.fc-outline-target:focus {
+  outline-width: 5px !important;
+  background: var(--adi-new-green) !important;
+}
+
+.fc-outline-target:focus[tabindex='-1'] {
+  outline-color: var(--adi-new-green) !important;
+  background: var(--adi-new-green) !important;
+}
+
+.fc-accordion-panel.fc-is-closed .fc-accordion-panel-header:focus {
+  border: 1px solid var(--adi-new-green) !important;
+  background: var(--adi-new-green) !important;
+  color: var(--adi-new-green) !important;
+  opacity: 1 !important;
+}

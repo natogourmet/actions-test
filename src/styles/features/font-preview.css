@@ -1,0 +1,34 @@
+#configure-container {
+  & .fc-preview-font-custom-html {
+    margin-bottom: 2em;
+    & .fc-preview-font-button {
+      background: none;
+      border: none;
+      display: flex;
+      cursor: pointer;
+
+      & .fc-preview-font-text-button {
+        border-bottom: 2px solid var(--black);
+        padding-bottom: 0.5em;
+        margin-right: 1em;
+        font: var(--font-main);
+        pointer-events: none;
+      }
+
+      svg {
+        pointer-events: none;
+      }
+    }
+  }
+}
+
+.fc-dialog-container {
+  & .fc-adi-preview-font {
+    & .fc-dialog-body div {
+      overflow: hidden;
+    }
+    & .font {
+      font-size: 2em;
+    }
+  }
+}

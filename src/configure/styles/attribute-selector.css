@@ -1,0 +1,43 @@
+/*
+ Icon diplayed next to attributes selector. On mouse over, it displays a Tool Tip with info.
+
+ .fc-attribute-selector-info-icon
+  svg
+*/
+#configure-container {
+  & .fc-attribute-selector-info-icon {
+    position: relative;
+    cursor: pointer;
+    margin-left: 3px;
+
+    & svg {
+      position: absolute;
+      top: 5px;
+      width: 9px;
+      height: 9px;
+    }
+
+    & circle {
+      fill: var(--theme-primary);
+      stroke: var(--color-info-icon);
+    }
+
+    & path {
+      fill: var(--color-info-icon);
+    }
+  }
+}
+
+@media (--ms-ie) {
+  /* fallback css var on IE */
+  #configure-container {
+    & .fc-attribute-selector-info-icon circle {
+      fill: #fff;
+      stroke: #b5b5b5;
+    }
+
+    & .fc-attribute-selector-info-icon path {
+      fill: #b5b5b5;
+    }
+  }
+}

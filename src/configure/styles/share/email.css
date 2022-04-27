@@ -1,0 +1,111 @@
+/*
+
+.fc-dialog-type-email
+  .fc-dialog-header
+  .fc-dialog-body
+    ...
+    .fc-share-email-dialog
+      .fc-share-email-form
+        .fc-share-dialog.fc-share-recipe-image
+          .fc-recipe-image
+            .fc-display
+              .fc-configure-display
+                .carousel-track
+        fc-input.fc-share-[name-from, name-to, email-to, message]
+        fc-button-pair.fc-outline-target //SEND
+        fc-button-pair.fc-outline-target //CANCEL
+
+
+*/
+
+.fc-dialog.fc-dialog-type-email {
+  & .fc-share-email-dialog {
+    & input,
+    & textarea {
+      margin-bottom: 0;
+    }
+    & .fc-input {
+      padding: 0;
+      margin-bottom: 20px;
+    }
+    & .fc-dialog-body {
+      max-height: none;
+    }
+
+    & .fc-configure-display,
+    & .carousel-track {
+      height: auto !important;
+    }
+
+    & .fc-share-recipe-image {
+      padding: 0;
+      margin-bottom: 30px;
+    }
+
+    & .fc-share-dialog {
+      padding: 0;
+    }
+
+    & .fc-share-message {
+      height: auto;
+    }
+
+    & .fc-button-pair {
+      margin-right: 10px;
+      float: left;
+      width: calc(50% - 10px);
+
+      &:last-child {
+        margin-left: 10px;
+        margin-right: 0;
+      }
+    }
+
+    & .fc-button {
+      width: 100%;
+    }
+  }
+}
+
+@media (--lower-than-sm) {
+  .fc-dialog-type-email {
+    & .fc-button-pair {
+      width: 100%;
+    }
+
+    & .fc-share-dialog {
+      & .fc-button-pair {
+        margin-right: 0;
+        margin-bottom: 15px;
+
+        &:last-child {
+          margin-left: 0;
+          margin-bottom: 0;
+        }
+      }
+    }
+  }
+}
+
+@media (--greater-than-md) {
+  .fc-dialog-type-email {
+    min-width: 823px !important; /* important needs to custom width dialog */
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%) !important; /* important needs to custom width dialog */
+
+    & .fc-share-email-form {
+      margin-right: 50%;
+      padding-right: 15px;
+    }
+  }
+
+  .fc-share-recipe-image {
+    width: calc(50% - 45px);
+    position: absolute;
+    right: 30px;
+    margin-top: 25px;
+    border: 1px solid var(--border-color);
+    height: calc(100% - 167px); /* 167 i got from design */
+  }
+}

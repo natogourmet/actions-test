@@ -1,0 +1,57 @@
+<h1 class="fc-print-product-name"><%this.productName%></h1>
+<div class="fc-print-display">
+  <img src="<%this.imageUrl%>" />
+</div>
+<div class="fc-print-url">
+  <span class="fc-print-url-label">View Online:</span>
+  <a href="<%this.tinyUrl%>" class="fc-print-url-"><%this.tinyUrl%></a>
+</div>
+<div class="fc-print-product-details">
+  <h2 class="fc-print-product-details-title">My Custom Product</h2>
+  <div class="fc-print-attributes">
+    <%for(var i = 0; i < this.recipe.length; i++) {%> <%if((this.recipe[i].ca.selectorType !== "none" ||
+    this.recipe[i].ca.alias === "size") && (this.recipe[i].av.text ? this.recipe[i].av.text : this.recipe[i].av.name))
+    {%>
+    <div
+      class="
+        fc-print-attribute
+        fc-print-attribute-<%this.recipe[i].ca.alias%>
+        fc-print-attribute-<%this.recipe[i].ca.selectorType%>
+      ">
+      <%if(this.recipe[i].av.clipArtImageUrl) {%>
+      <div
+        class="fc-print-swatch fc-print-attribute-clip-art-image"
+        style="background-image: url(<%this.recipe[i].av.clipArtImageUrl%>)"></div>
+      <%} else if(this.recipe[i].av.url) {%>
+      <div
+        class="fc-print-swatch fc-print-attribute-image"
+        style="background-image: url(<%this.recipe[i].av.url%>)"></div>
+      <%} else if(this.recipe[i].av.color) {%>
+      <div
+        class="fc-print-swatch fc-print-attribute-color-swatch"
+        style="background-color: <%this.recipe[i].av.color%>"></div>
+      <%} else {%>
+      <div class="fc-print-swatch fc-print-attribute-swatch-empty">
+        <%if(this.recipe[i].ca.selectorType === "text") {%>
+        <span>text</span>
+        <%} else if(this.recipe[i].ca.selectorType === "buttongroup" && (this.recipe[i].av.text ? this.recipe[i].av.text
+        : this.recipe[i].av.name)) {%>
+        <span><%(this.recipe[i].av.text ? this.recipe[i].av.text : this.recipe[i].av.name).substring(0, 1)%></span>
+        <%}%>
+      </div>
+      <%}%>
+      <div class="fc-print-attribute-details">
+        <div class="fc-print-attribute-name"><%this.recipe[i].ca.name%></div>
+        <%if(this.recipe[i].av.text ? this.recipe[i].av.text : this.recipe[i].av.name) {%>
+        <div class="fc-print-attribute-value">
+          <%(this.recipe[i].av.text ? this.recipe[i].av.text : this.recipe[i].av.name)%>
+        </div>
+        <%}%> <%if(this.recipe[i].upcharge) {%>
+        <div class="fc-print-attribute-upcharge">+ <%this.recipe[i].upcharge%></div>
+        <%}%>
+      </div>
+    </div>
+    <%}%> <%}%>
+  </div>
+</div>
+<div class="fc-print-price">Subtotal: <%this.formattedPrice%></div>

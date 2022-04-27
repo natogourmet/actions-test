@@ -1,0 +1,30 @@
+name: Build and deploy develop branch
+
+# Runs when commits are pushed to the develop branch
+# - Checkouts the pushed branch
+# - Builds and tests the project
+# - Deploys the application to Github Pages (branches/[branch name])
+on:
+  push:
+    branches:
+      - develop
+
+jobs:
+  build:
+    uses: martinmoscovich/gh-actions/.github/workflows/npm-build.yml@v3
+    with:
+      node_version: 14
+      dist_dir: dist
+
+  deploy:
+    name: Deploy
+    needs: build
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Deploy to GH Pages
+        uses: martinmoscovich/gh-actions/gh-deploy@v3
+        with:
+          to: branches/develop
+          environment_name: develop
+          github_token: ${{ secrets.GITHUB_TOKEN }}

@@ -1,0 +1,59 @@
+/*
+
+Common attributes between quantity and size
+
+*/
+
+#configure-container {
+  & .fc-size-selector-title,
+  & .fc-quantity-title {
+    padding: 0;
+    margin-bottom: 8px;
+    font-size: 12px;
+    color: var(--color-text-secondary);
+  }
+
+  & .configure-add-to-cart-container .fc-quantity-input-with-buttons button:disabled,
+  & .configure-size-quantity-container .fc-quantity-input-with-buttons button:disabled {
+    color: var(--color-info-icon);
+    cursor: default;
+  }
+
+  & .configure-add-to-cart-container .fc-quantity-input-with-buttons .fc-quantity-button-increase,
+  & .configure-add-to-cart-container .fc-quantity-input-with-buttons .fc-quantity-button-decrease,
+  & .configure-size-quantity-container .fc-quantity-input-with-buttons .fc-quantity-button-increase,
+  & .configure-size-quantity-container .fc-quantity-input-with-buttons .fc-quantity-button-decrease {
+    padding: 9px 12px;
+    cursor: pointer;
+    line-height: 1;
+    font-size: 0;
+  }
+
+  & .fc-quantity-input {
+    text-align: center;
+    min-width: 20px;
+    -moz-appearance: textfield; /* Hide Arrows From Input Number */
+  }
+
+  & .fc-quantity-input::-webkit-outer-spin-button, /* FIXME: Maybe it should be removed because we use autoprefixer */
+  & .fc-quantity-input::-webkit-inner-spin-button {
+    /* Hide Arrows From Input Number */
+    -webkit-appearance: none;
+    margin: 0;
+  }
+}
+
+/* fallback css var on IE */
+@media (--ms-ie) {
+  #configure-container {
+    & .fc-size-selector-title,
+    & .fc-quantity-title {
+      color: #757575;
+    }
+
+    & .configure-add-to-cart-container .fc-quantity-input-with-buttons button:disabled,
+    & .configure-size-quantity-container .fc-quantity-input-with-buttons button:disabled {
+      color: #b5b5b5;
+    }
+  }
+}

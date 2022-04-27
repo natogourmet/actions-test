@@ -1,0 +1,67 @@
+/*
+
+BUTTONS
+
+*/
+
+.fc-disabled.fc-button {
+  opacity: 0.7;
+}
+
+.fc-button-white,
+.fc-button-pair .fc-button.fc-confirm-cancel,
+.fc-share-dialog .fc-button.fc-dialog-cancel {
+  font: var(--font-bold);
+  font-size: 0.9rem;
+  text-align: center;
+  color: var(--theme-invert);
+  text-transform: uppercase;
+  padding: 18px 10px;
+  background-color: var(--theme-primary);
+  border: 1px solid var(--theme-invert);
+}
+
+.fc-button-black,
+.fc-add-to-cart-button,
+.fc-button.fc-confirm-ok,
+.fc-share-dialog .fc-dialog-submit,
+.fc-share-dialog .fc-dialog-submit:hover,
+.fc-add-to-cart-dialog-action button {
+  font: var(--font-bold);
+  font-size: 0.9rem;
+  text-align: center;
+  color: var(--theme-primary);
+  text-transform: uppercase;
+  background-color: var(--theme-invert);
+  border: 1px solid var(--theme-invert);
+}
+
+.fc-add-to-cart-button {
+  padding-top: 10px;
+}
+
+@media (--ms-ie) {
+  /* fallback css var on IE */
+  .fc-button-white,
+  .fc-button.fc-confirm-cancel,
+  .fc-share-dialog .fc-button.fc-dialog-cancel {
+    font: 500 12px 'Work Sans', sans-serif;
+    color: #101010;
+    background: #fff;
+    border: 1px solid #101010;
+  }
+
+  .fc-button-black,
+  .fc-add-to-cart-button,
+  .fc-button.fc-confirm-ok,
+  .fc-share-dialog .fc-share-email-dialog .fc-dialog-submit,
+  .fc-share-dialog .fc-share-email-dialog .fc-dialog-submit:hover,
+  .fc-add-to-cart-dialog-action button {
+    font: 500 12px 'Work Sans', sans-serif;
+    color: #fff;
+    background: #101010;
+    border: 1px solid #101010;
+  }
+}
+
+/* BUTTONS end */
